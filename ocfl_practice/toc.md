@@ -11,6 +11,7 @@ Dieser Workshop ist als „Live-Lab“ konzipiert und führt Schritt für Schrit
 
 ## 3. OCFL Extensions (Erweiterungen)
 - **[Konzept und Verwendung von Extensions](03_extensions.md)**
+- **[OCFL Storage Root Extensions](03a_storage_root_extensions.md)**
 
 ## 4. Einführung und Grundlagen
 - Begrüßung und Zielsetzung des Workshops
