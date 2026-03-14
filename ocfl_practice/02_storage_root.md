@@ -37,7 +37,7 @@ gocfl init [Pfad zur Storage Root] [Flags]
 ### Wichtige Flags für `init`
 - `--ocfl-version`: Legt die Version der Spezifikation fest (Standard: `1.1`).
 - `-d`, `--digest`: Definiert den Standard-Hash-Algorithmus (z. B. `sha512` oder `sha256`).
-- `--default-storageroot-extensions`: Pfad zu einem Ordner mit Konfigurationen für Erweiterungen, die initial geladen werden sollen.
+- `--default-storageroot-extensions`: Pfad zu einem Ordner mit Konfigurationen für Erweiterungen, die initial geladen werden sollen. Dieses **Extension-Template** ist entscheidend für die automatische Konfiguration der Storage Root (siehe unten).
 
 ## 3. Praktisches Beispiel
 
@@ -48,8 +48,12 @@ gocfl --config ./gocfl/config/gocfl.toml init ./gocfl/temp/test42/
 ```
 
 ### Was passiert dabei?
-- `--config ./gocfl/config/gocfl.toml`: `gocfl` lädt die Einstellungen aus der angegebenen Datei (z. B. die OCFL-Version oder den Digest-Algorithmus).
-- `init ./gocfl/temp/test42/`: Erstellt die notwendigen OCFL-Strukturdateien im Verzeichnis `./gocfl/temp/test42/`.
+- `--config ./gocfl/config/gocfl.toml`: `gocfl` lädt die Einstellungen aus der angegebenen Datei. Besonders wichtig ist hier der Eintrag unter `[Init]`, der auf das **Extension-Template** verweist:
+  ```toml
+  [Init]
+  StorageRootExtensions = "/home/ocfl/gocfl/config/extensions/storageroot"
+  ```
+- `init ./gocfl/temp/test42/`: Erstellt die notwendigen OCFL-Strukturdateien im Verzeichnis `./gocfl/temp/test42/` und kopiert die im Template definierten Erweiterungskonfigurationen und Dokumentationen in die Storage Root.
 
 Wenn Sie nach dem Befehl in das Verzeichnis schauen, sehen Sie eine Struktur, die über die minimale OCFL-Spezifikation hinausgeht, da `gocfl` nützliche Zusatzinformationen und Konfigurationen mit anlegt:
 

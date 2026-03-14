@@ -2,37 +2,33 @@
 
 Dieser Workshop ist als „Live-Lab“ konzipiert und führt Schritt für Schritt durch die Arbeit mit OCFL und dem Werkzeug `gocfl`.
 
-## 1. Das Werkzeug gocfl (Verwendung und Konfiguration)
+## 1. Installation von gocfl
+- **[Installation von gocfl](00_installation.md)**
+
+## 2. Das Werkzeug gocfl (Verwendung und Konfiguration)
 - **[Grundlagen der Verwendung und Konfiguration von gocfl](01_gocfl_usage.md)**
 - **[Detaillierte Konfiguration (gocfl.toml)](01a_gocfl_config.md)**
 
-## 2. Initialisierung einer OCFL Storage Root
+## 3. Initialisierung einer OCFL Storage Root
 - **[Anlegen der Storage Root (gocfl init)](02_storage_root.md)**
 
-## 3. OCFL Extensions (Erweiterungen)
+## 4. OCFL Extensions (Erweiterungen)
 - **[Konzept und Verwendung von Extensions](03_extensions.md)**
 - **[OCFL Storage Root Extensions](03a_storage_root_extensions.md)**
+- **[Detaillierte Liste der verwendeten Extensions](03b_extension_list.md)**
 
-## 4. Einführung und Grundlagen
-- Begrüßung und Zielsetzung des Workshops
-- Kurze theoretische Einführung in den OCFL-Standard
-- Vorstellung der Kernkomponenten: Storage Root und Object
+## 5. Hinzufügen eines Objektes (add)
+- **[Erstellen und Hinzufügen von Objekten](04_add_object.md)**
 
-## 5. Erstellung und Verwaltung von OCFL-Objekten
-- [Erstellen eines neuen OCFL-Objekts](04_create_object.md)
-- Hinzufügen von Inhalten und Metadaten
-- Validierung der Struktur
+## 6. Struktur eines OCFL-Objekts
+- **[Die Verzeichnisstruktur eines OCFL-Objekts](05_object_structure.md)**
 
-## 6. Versionierung in der Praxis
-- Durchführen von Updates (neue Versionen)
-- Löschen, Ersetzen und Umbenennen von Dateien innerhalb eines Objekts
-- Untersuchung der Deduplizierungsmechanismen
+## 7. Aktualisieren eines Objektes (update)
+- **[Aktualisieren eines Objektes (update)](06_update_object.md)**
 
-## 7. Fortgeschrittene Szenarien und Erweiterungen
-- Extraktion technischer und Dateisystem-Metadaten
-- Objektinterne Formatmigration
-- Einsatz von Trusted Timestamps und METS/PREMIS-Ansätzen
+## 8. Validierung (validate)
+- **[Validierung der OCFL-Struktur](07_validate_object.md)**
 
-## 8. Abschluss und Diskussion
-- Zusammenfassung der Ergebnisse
-- Fragen und Antworten zur praktischen Anwendung im Archivalltag
+## 9. Anzeige im Webbrowser (display)
+- **[Anzeige im Webbrowser (display)](08_display_object.md)**
+

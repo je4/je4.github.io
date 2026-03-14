@@ -15,7 +15,7 @@ Hier ist ein Überblick über die wichtigsten Abschnitte der Datei:
 
 Diese Abschnitte definieren Fallback-Werte, falls diese nicht explizit auf der Kommandozeile angegeben werden:
 
-- **[Init]:** Standard-OCFL-Version (z.B. 1.1), Speicherpfad für Extensions und der primäre Digest-Algorithmus (z.B. SHA-512).
+- **[Init]:** Standard-OCFL-Version (z.B. 1.1), Pfad zum **Storage-Root-Extension-Template** (z.B. `/home/ocfl/gocfl/config/extensions/storageroot`) und der primäre Digest-Algorithmus (z.B. SHA-512).
 - **[Add]:** Standard-Commit-Nachricht, Digest-Typen, Fixity-Algorithmen (z.B. MD5, SHA-1 für zusätzliche Integritätsprüfung) und Benutzerinformationen (`[Add.User]`).
 
 ## 3. Submodule (Die "Intelligenz" von gocfl)
@@ -44,4 +44,4 @@ Konfiguration für spezifische OCFL-Erweiterungen, wie z.B. die Integration von 
 
 ---
 
-[Zurück zur Verwendung von gocfl](01_gocfl_usage.md) | [Zurück zum Inhaltsverzeichnis](toc.md)
+[Zurück zur Verwendung von gocfl](01_gocfl_usage.md) | [Zurück zum Inhaltsverzeichnis](toc.md) | [Nächstes Thema: Initialisierung einer Storage Root](02_storage_root.md)

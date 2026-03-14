@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>OCFL Community Extension 0011: Direct Clean Path Layout | extensions</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="OCFL Community Extension 0011: Direct Clean Path Layout" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="OCFL Community Extensions" />
+<meta property="og:description" content="OCFL Community Extensions" />
+<link rel="canonical" href="https://ocfl.github.io/extensions/0011-direct-clean-path-layout.html" />
+<meta property="og:url" content="https://ocfl.github.io/extensions/0011-direct-clean-path-layout.html" />
+<meta property="og:site_name" content="extensions" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="OCFL Community Extension 0011: Direct Clean Path Layout" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"OCFL Community Extensions","headline":"OCFL Community Extension 0011: Direct Clean Path Layout","url":"https://ocfl.github.io/extensions/0011-direct-clean-path-layout.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/extensions/assets/css/style.css?v=befc324d43196d4859aee86ca9caeb0444f452ce">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/extensions/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ocfl.github.io/extensions/">extensions</a></h1>
+      
+
+      <h1 id="ocfl-community-extension-0011-direct-clean-path-layout">OCFL Community Extension 0011: Direct Clean Path Layout</h1>
+
+<ul>
+  <li><strong>Extension Name:</strong> <code class="language-plaintext highlighter-rouge">0011-direct-clean-path-layout</code></li>
+  <li><strong>Authors:</strong> Jürgen Enge (Basel)</li>
+  <li><strong>Minimum OCFL Version:</strong> 1.0</li>
+  <li><strong>OCFL Community Extensions Version:</strong> 1.0</li>
+  <li><strong>Related to:</strong> n/a</li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>This extension is intended to be used to map logical paths to safe content paths. This is done by replacing or removing “dangerous characters” from names.</p>
+
+<p>This functionality is based on David A. Wheeler’s essay <a href="https://www.dwheeler.com/essays/fixing-unix-linux-filenames.html">“Fixing Unix/Linux/POSIX Filenames”</a></p>
+
+<h3 id="usage-scenario">Usage Scenario</h3>
+
+<p>This extension is intended to be used when you want to ensure file and directory names do not include problematic characters.</p>
+
+<p>An example could be complete file systems (disks) that come from estates or research data and are not under the control of archivists.</p>
+
+<h3 id="caveat">Caveat</h3>
+
+<h4 id="projection">Projection</h4>
+
+<p>This extension provides injective (one-to-one) projections only if <code class="language-plaintext highlighter-rouge">encodeUTF == true</code>. If you don’t want to use the verbose UTF-Code replacements (<code class="language-plaintext highlighter-rouge">encodeUTF == false</code>), first check your source to make sure, that there’s no chance of different names to be mapped on one target. This happens on whitespace replacement as well as on the removal of leading <code class="language-plaintext highlighter-rouge">-</code>, <code class="language-plaintext highlighter-rouge">~</code> and ` ` (blank) or trailing ` ` (blank). Software which generates the OCFL structure should raise an error in this case.</p>
+
+<h5 id="example-names-that-would-map-to-the-same-target">Example names, that would map to the same target</h5>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">~file</code> =&gt; <code class="language-plaintext highlighter-rouge">file</code></li>
+  <li><code class="language-plaintext highlighter-rouge">-file</code> =&gt; <code class="language-plaintext highlighter-rouge">file</code></li>
+  <li><code class="language-plaintext highlighter-rouge">file</code> =&gt; <code class="language-plaintext highlighter-rouge">file</code></li>
+</ul>
+
+<h2 id="parameters">Parameters</h2>
+
+<h3 id="summary">Summary</h3>
+
+<ul>
+  <li><strong>Name:</strong> <code class="language-plaintext highlighter-rouge">encodeUTF</code>
+    <ul>
+      <li><strong>Description:</strong> Decides whether “dangerous” characters will be replaced by a
+defined replacement string or its UTF code (e.g. <code class="language-plaintext highlighter-rouge">=u0020</code> for blank char)</li>
+      <li><strong>Type:</strong> bool</li>
+      <li><strong>Default:</strong> false</li>
+    </ul>
+  </li>
+  <li><strong>Name:</strong> <code class="language-plaintext highlighter-rouge">maxPathSegmentLen</code>
+    <ul>
+      <li><strong>Description:</strong> Determines the maximum number of characters within parts of the full pathname separated by <code class="language-plaintext highlighter-rouge">/</code> (files or folders). A result with more characters will raise an error.</li>
+      <li><strong>Type:</strong> number</li>
+      <li><strong>Constraints:</strong> An integer greater than 0</li>
+      <li><strong>Default:</strong> 127</li>
+    </ul>
+  </li>
+  <li><strong>Name:</strong> <code class="language-plaintext highlighter-rouge">maxPathnameLen</code>
+    <ul>
+      <li><strong>Description:</strong> Determines the maximum number of result characters in the full pathname. A result with more characters will raise an error.</li>
+      <li><strong>Type:</strong> number</li>
+      <li><strong>Constraints:</strong> An integer greater than 0</li>
+      <li><strong>Default:</strong> 32000</li>
+    </ul>
+  </li>
+  <li><strong>Name:</strong> <code class="language-plaintext highlighter-rouge">replacementString</code>
+    <ul>
+      <li><strong>Description:</strong> String that is used to replace non-whitespace characters which need replacement. If <code class="language-plaintext highlighter-rouge">encodeUTF == true</code> only used for replacement of non-UTF8 characters.</li>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Default:</strong> “_”</li>
+    </ul>
+  </li>
+  <li><strong>Name:</strong> <code class="language-plaintext highlighter-rouge">whitespaceReplacementString</code>
+    <ul>
+      <li><strong>Description:</strong> String that is used to replace <a href="https://en.wikipedia.org/wiki/Template:Whitespace_(Unicode)">whitespaces</a>. Only used if <code class="language-plaintext highlighter-rouge">encodeUTF == false</code>.
+<strong>Hint:</strong> if you want to remove (inner) whitespaces, just use the empty string</li>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Default:</strong> “ “ (U+0020)</li>
+    </ul>
+  </li>
+  <li><strong>Name:</strong> <code class="language-plaintext highlighter-rouge">fallbackDigestAlgorithm</code>
+    <ul>
+      <li><strong>Description:</strong> Name of the digest algorithm to use for generating fallback filenames. Restricted to algorithms supported by <a href="https://ocfl.io/1.1/spec/#digests">OCFL</a></li>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Default:</strong> <code class="language-plaintext highlighter-rouge">md5</code></li>
+    </ul>
+  </li>
+  <li><strong>Name:</strong> <code class="language-plaintext highlighter-rouge">fallbackFolder</code>
+    <ul>
+      <li><strong>Description:</strong> Name of the folder, the fallback files will appear</li>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Default:</strong> <code class="language-plaintext highlighter-rouge">fallback</code></li>
+    </ul>
+  </li>
+  <li><strong>Name:</strong> <code class="language-plaintext highlighter-rouge">numberOfFallbackTuples</code>
+    <ul>
+      <li><strong>Description:</strong> Number of sub-folder build from prefix of fallback digest.<br />
+<strong>Hint:</strong> only needed if a large number of fallback entries is expected</li>
+      <li><strong>Type:</strong> number</li>
+      <li><strong>Constraints:</strong> An integer greater than or equal to 0 // <code class="language-plaintext highlighter-rouge">numberOfFallbackTuples * fallbackTupleSize</code> must be less than <code class="language-plaintext highlighter-rouge">fallbackDigestAlgorithm</code>’s output size</li>
+      <li><strong>Default:</strong> <code class="language-plaintext highlighter-rouge">0</code></li>
+    </ul>
+  </li>
+  <li><strong>Name:</strong> <code class="language-plaintext highlighter-rouge">fallbackTupleSize</code>
+    <ul>
+      <li><strong>Description:</strong> Number of characters in each sub-folder of fallback digest.<br />
+<strong>Hint:</strong> only needed if <code class="language-plaintext highlighter-rouge">numberOfFallbackTuples</code> is greater than 0</li>
+      <li><strong>Type:</strong> number</li>
+      <li><strong>Constraints:</strong> An integer greater than 0 // <code class="language-plaintext highlighter-rouge">numberOfFallbackTuples * fallbackTupleSize</code> must be less than <code class="language-plaintext highlighter-rouge">fallbackDigestAlgorithm</code>’s output size</li>
+      <li><strong>Default:</strong> <code class="language-plaintext highlighter-rouge">1</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="definition-of-terms">Definition of terms</h3>
+
+<ul>
+  <li>
+    <p><strong><code class="language-plaintext highlighter-rouge">maxPathSegmentLen</code>/<code class="language-plaintext highlighter-rouge">maxPathnameLen</code>:</strong>
+Several filesystems (e.g. Ext2/3/4) have byte restrictions on filename length. When using UTF16 (i.e. NTFS) or UTF32 characters in the filesystem, the byte length is double or quadruple the character length. For filesystems which are using UTF8 character sets, the length of a name in bytes can be calculated only by building the UTF8 string and counting the byte length afterwards.</p>
+
+    <p><strong>Hint:</strong> UTF8 has always less or equal bytes than UTF32 which means, that assuming UTF32 instead of UTF8 for length calculation is safe, but would give you only 63 characters on 255 byte restrictions.</p>
+  </li>
+</ul>
+
+<h2 id="procedure">Procedure</h2>
+
+<p>The following is an outline to the steps for mapping a filepath.</p>
+
+<p><a href="#utf-replacement-character-list">UTF Replacement Character List</a> is a list of UTF characters mentioned below.</p>
+
+<h3 id="when-encodeutf-is-true">When <code class="language-plaintext highlighter-rouge">encodeUTF</code> is <code class="language-plaintext highlighter-rouge">true</code></h3>
+
+<ol>
+  <li>Replace all non-UTF8 characters with <code class="language-plaintext highlighter-rouge">replacementString</code></li>
+  <li>Split the string at path separator <code class="language-plaintext highlighter-rouge">/</code></li>
+  <li>For each part do the following
+    <ol>
+      <li>Replace <code class="language-plaintext highlighter-rouge">=</code> with <code class="language-plaintext highlighter-rouge">=u003D</code> if it is followed by <code class="language-plaintext highlighter-rouge">u</code> and four hex digits</li>
+      <li>Replace any character from this list with its UTF code in the form <code class="language-plaintext highlighter-rouge">=uXXXX</code> where <code class="language-plaintext highlighter-rouge">XXXX</code> is the code: <code class="language-plaintext highlighter-rouge">U+0000-U+001F</code> <code class="language-plaintext highlighter-rouge">U+007F</code> <code class="language-plaintext highlighter-rouge">U+0020</code> <code class="language-plaintext highlighter-rouge">U+0085</code> <code class="language-plaintext highlighter-rouge">U+00A0</code> <code class="language-plaintext highlighter-rouge">U+1680</code> <code class="language-plaintext highlighter-rouge">U+2000-U+200F</code> <code class="language-plaintext highlighter-rouge">U+2028</code> <code class="language-plaintext highlighter-rouge">U+2029</code> <code class="language-plaintext highlighter-rouge">U+202F</code> <code class="language-plaintext highlighter-rouge">U+205F</code> <code class="language-plaintext highlighter-rouge">U+3000</code> <code class="language-plaintext highlighter-rouge">\n</code> <code class="language-plaintext highlighter-rouge">\t</code> <code class="language-plaintext highlighter-rouge">*</code> <code class="language-plaintext highlighter-rouge">?</code> <code class="language-plaintext highlighter-rouge">:</code> <code class="language-plaintext highlighter-rouge">[</code> <code class="language-plaintext highlighter-rouge">]</code> <code class="language-plaintext highlighter-rouge">"</code> <code class="language-plaintext highlighter-rouge">&lt;</code> <code class="language-plaintext highlighter-rouge">&gt;</code> <code class="language-plaintext highlighter-rouge">|</code> <code class="language-plaintext highlighter-rouge">(</code> <code class="language-plaintext highlighter-rouge">)</code> <code class="language-plaintext highlighter-rouge">{</code> <code class="language-plaintext highlighter-rouge">}</code> <code class="language-plaintext highlighter-rouge">&amp;</code> <code class="language-plaintext highlighter-rouge">'</code> <code class="language-plaintext highlighter-rouge">!</code> <code class="language-plaintext highlighter-rouge">;</code> <code class="language-plaintext highlighter-rouge">#</code> <code class="language-plaintext highlighter-rouge">@</code></li>
+      <li>If part only contains periods, replace first period (<code class="language-plaintext highlighter-rouge">.</code>), with UTF Code (<code class="language-plaintext highlighter-rouge">U+002E</code>)</li>
+      <li>Remove part completely, if its length is 0</li>
+      <li>When length of part is larger than <code class="language-plaintext highlighter-rouge">maxPathSegmentLen</code> use fallback function and return</li>
+    </ol>
+  </li>
+  <li>Join the parts with path separator <code class="language-plaintext highlighter-rouge">/</code></li>
+  <li>When length of result is larger than <code class="language-plaintext highlighter-rouge">maxPathnameLen</code> use fallback function and return</li>
+</ol>
+
+<h3 id="when-encodeutf-is-false">When <code class="language-plaintext highlighter-rouge">encodeUTF</code> is <code class="language-plaintext highlighter-rouge">false</code></h3>
+
+<ol>
+  <li>Replace all non-UTF8 characters with <code class="language-plaintext highlighter-rouge">replacementString</code></li>
+  <li>Split the string at path separator <code class="language-plaintext highlighter-rouge">/</code></li>
+  <li>For each part do the following
+    <ol>
+      <li>Replace any whitespace character from this list with <code class="language-plaintext highlighter-rouge">whitespaceReplacementString</code>: <code class="language-plaintext highlighter-rouge">U+0009</code> <code class="language-plaintext highlighter-rouge">U+000A-U+000D</code> <code class="language-plaintext highlighter-rouge">U+0020</code> <code class="language-plaintext highlighter-rouge">U+0085</code> <code class="language-plaintext highlighter-rouge">U+00A0</code> <code class="language-plaintext highlighter-rouge">U+1680</code> <code class="language-plaintext highlighter-rouge">U+2000-U+200F</code> <code class="language-plaintext highlighter-rouge">U+2028</code> <code class="language-plaintext highlighter-rouge">U+2029</code> <code class="language-plaintext highlighter-rouge">U+202F</code> <code class="language-plaintext highlighter-rouge">U+205F</code> <code class="language-plaintext highlighter-rouge">U+3000</code></li>
+      <li>Replace any character from this list with <code class="language-plaintext highlighter-rouge">replacementString</code>: <code class="language-plaintext highlighter-rouge">U+0000-U+001F</code> <code class="language-plaintext highlighter-rouge">U+007f</code> <code class="language-plaintext highlighter-rouge">*</code> <code class="language-plaintext highlighter-rouge">?</code> <code class="language-plaintext highlighter-rouge">:</code> <code class="language-plaintext highlighter-rouge">[</code> <code class="language-plaintext highlighter-rouge">]</code> <code class="language-plaintext highlighter-rouge">"</code> <code class="language-plaintext highlighter-rouge">&lt;</code> <code class="language-plaintext highlighter-rouge">&gt;</code> <code class="language-plaintext highlighter-rouge">|</code> <code class="language-plaintext highlighter-rouge">(</code> <code class="language-plaintext highlighter-rouge">)</code> <code class="language-plaintext highlighter-rouge">{</code> <code class="language-plaintext highlighter-rouge">}</code> <code class="language-plaintext highlighter-rouge">&amp;</code> <code class="language-plaintext highlighter-rouge">'</code> <code class="language-plaintext highlighter-rouge">!</code> <code class="language-plaintext highlighter-rouge">;</code> <code class="language-plaintext highlighter-rouge">#</code> <code class="language-plaintext highlighter-rouge">@</code></li>
+      <li>Remove leading spaces, <code class="language-plaintext highlighter-rouge">-</code> and <code class="language-plaintext highlighter-rouge">~</code> / remove trailing spaces</li>
+      <li>If part only contains periods, replace first period (<code class="language-plaintext highlighter-rouge">.</code>) with <code class="language-plaintext highlighter-rouge">replacementString</code></li>
+      <li>Remove part completely, if its length is 0</li>
+      <li>When length of part is larger than <code class="language-plaintext highlighter-rouge">maxPathSegmentLen</code> use fallback function and return</li>
+    </ol>
+  </li>
+  <li>Join the parts with path separator <code class="language-plaintext highlighter-rouge">/</code></li>
+  <li>When length of result is larger than <code class="language-plaintext highlighter-rouge">maxPathnameLen</code> use fallback function and return</li>
+</ol>
+
+<h3 id="fallback-function">Fallback function</h3>
+
+<ol>
+  <li>Create digest with <code class="language-plaintext highlighter-rouge">fallbackDigestAlgorithm</code> from initial identifier/filepath as lower case hex string</li>
+  <li>When digest is longer than <code class="language-plaintext highlighter-rouge">maxPathSegmentLen</code> add folder separator <code class="language-plaintext highlighter-rouge">/</code> after <code class="language-plaintext highlighter-rouge">maxPathSegmentLen</code> (character or byte based) until all parts are smaller or equal <code class="language-plaintext highlighter-rouge">maxPathSegmentLen</code></li>
+  <li>Take the first <code class="language-plaintext highlighter-rouge">numberOfFallbackTuples * fallbackTupleSize</code> characters from digest</li>
+  <li>Split the characters in <code class="language-plaintext highlighter-rouge">numberOfFallbackTuples</code> parts of <code class="language-plaintext highlighter-rouge">fallbackTupleSize</code> characters</li>
+  <li>Prepend parts as prefix folders with separator <code class="language-plaintext highlighter-rouge">/</code></li>
+  <li>Prepend <code class="language-plaintext highlighter-rouge">fallbackFolder</code> with separator <code class="language-plaintext highlighter-rouge">/</code></li>
+</ol>
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="parameters-1">Parameters</h3>
+
+<p>It is not necessary to specify any parameters to use the default configuration. However, if you were to do so, it would look like the following:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"extensionName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0011-direct-clean-path-layout"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"maxPathSegmentLen"</span><span class="p">:</span><span class="w"> </span><span class="mi">127</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"maxPathnameLen"</span><span class="p">:</span><span class="w"> </span><span class="mi">32000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"encodeUTF"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"replacementString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"whitespaceReplacementString"</span><span class="p">:</span><span class="w"> </span><span class="s2">" "</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fallbackDigestAlgorithm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"md5"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fallbackFolder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fallback"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"numberOfFallbackTuples"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="mappings">Mappings</h3>
+
+<h4 id="1-encodeutf--false">#1 <code class="language-plaintext highlighter-rouge">encodeUTF == false</code></h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"extensionName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0011-direct-clean-path-layout"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"maxPathSegmentLen"</span><span class="p">:</span><span class="w"> </span><span class="mi">127</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"maxPathnameLen"</span><span class="p">:</span><span class="w"> </span><span class="mi">32000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"encodeUTF"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"replacementString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"whitespaceReplacementString"</span><span class="p">:</span><span class="w"> </span><span class="s2">" "</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fallbackDigestAlgorithm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"md5"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fallbackFolder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fallback"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"numberOfFallbackTuples"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID or Path</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">..hor_rib:lé-$id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">..hor_rib_lé-$id</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">info:fedora/object-01</code></td>
+      <td><code class="language-plaintext highlighter-rouge">info_fedora/object-01</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">~ info:fedora/-obj#ec@t-"01 </code></td>
+      <td><code class="language-plaintext highlighter-rouge">info_fedora/obj_ec_t-_01</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/test/ ~/.../blah</code></td>
+      <td><code class="language-plaintext highlighter-rouge">test/_../blah</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">https://hdl.handle.net/XXXXX/test/bl ah</code></td>
+      <td><code class="language-plaintext highlighter-rouge">https_/hdl.handle.net/XXXXX/test/bl ah</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">abcdefghijabcdefghij abcdefghijabcdefghij abcdefghijabcdefghij abcdefghijabcdefghij abcdefghijabcdefghij abcdefghijabcdefghij abcdefghijabcdefghij abcdefghijabcdefghij abcdefghijabcdefghij abcdefghijabcdefghij abcdefghijabcdefghij abcdefghijabcdefghij abcdefghijabcdefghij</code></td>
+      <td><code class="language-plaintext highlighter-rouge">fallback/0/e/0eafabb38fa7f1583d1461afe980ebdc</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="2-encodeutf--true">#2 <code class="language-plaintext highlighter-rouge">encodeUTF == true</code></h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"extensionName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0011-direct-clean-path-layout"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"maxPathSegmentLen"</span><span class="p">:</span><span class="w"> </span><span class="mi">127</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PathFilenameLen"</span><span class="p">:</span><span class="w"> </span><span class="mi">32000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"encodeUTF"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"replacementString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"whitespaceReplacementString"</span><span class="p">:</span><span class="w"> </span><span class="s2">" "</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fallbackDigestAlgorithm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sha512"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fallbackFolder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fallback"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"numberOfFallbackTuples"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID or Path</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">..hor_rib:lé-$id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">..hor_rib=u003Alé-$id</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">object=u123a-01</code></td>
+      <td><code class="language-plaintext highlighter-rouge">object=u003Du123a-01</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">object=u13a-01</code></td>
+      <td><code class="language-plaintext highlighter-rouge">object=u13a-01</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">info:fedora/object-01</code></td>
+      <td><code class="language-plaintext highlighter-rouge">info=u003Afedora/object-01</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">~ info:fedora/-obj#ec@t-"01 </code></td>
+      <td><code class="language-plaintext highlighter-rouge">=u007E=u0020info=u003Afedora/-obj=u0023ec=u0040t-=u002201=u0020</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/test/ ~/.../blah</code></td>
+      <td><code class="language-plaintext highlighter-rouge">test/=u0020~/=u002E../blah</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">https://hdl.handle.net/XXXXX/test/bl ah</code></td>
+      <td><code class="language-plaintext highlighter-rouge">https=u003A/hdl.handle.net/XXXXX/test/bl=u0020ah</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">abcdefghijabcdefghij abcdefghijabcdefghij abcdefghijabcdefghij abcdefghijabcdefghij abcdefghijabcdefghij abcdefghijabcdefghij abcdefghijabcdefghij abcdefghijabcdefghij abcdefghijabcdefghij abcdefghijabcdefghij abcdefghijabcdefghij abcdefghijabcdefghij abcdefghijabcdefghij</code></td>
+      <td><code class="language-plaintext highlighter-rouge">fallback/b/8/b8acda4abac53237afa03d6bbb078e1bf46b40438bb256df79b8d9ff0e57b32a688156ad21755363ea19953c160c4dd6d4db175b71e9aa87d68937181a9f69d/9</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="implementation">Implementation</h3>
+
+<h4 id="go">GO</h4>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">cleanpath</span>
+
+<span class="k">import</span> <span class="p">(</span>
+	<span class="s">"emperror.dev/errors"</span>
+	<span class="s">"regexp"</span>
+	<span class="s">"strings"</span>
+	<span class="p">[</span><span class="o">...</span><span class="p">]</span>
+<span class="p">)</span>
+
+
+<span class="k">var</span> <span class="n">directCleanRuleAll</span> <span class="o">=</span> <span class="n">regexp</span><span class="o">.</span><span class="n">MustCompile</span><span class="p">(</span><span class="s">"[</span><span class="se">\u0000</span><span class="s">-</span><span class="se">\u001f\u007f\u0020\u0085\u00a0\u1680\u2000</span><span class="s">-</span><span class="se">\u200f\u2028\u2029\u202f\u205f\u3000\n\t</span><span class="s">*?:</span><span class="se">\\</span><span class="s">[</span><span class="se">\\</span><span class="s">]</span><span class="se">\"</span><span class="s">&lt;&gt;|(){}&amp;'!</span><span class="se">\\</span><span class="s">;#@]"</span><span class="p">)</span>
+<span class="k">var</span> <span class="n">directCleanRuleWhitespace</span> <span class="o">=</span> <span class="n">regexp</span><span class="o">.</span><span class="n">MustCompile</span><span class="p">(</span><span class="s">"[</span><span class="se">\u0009\u000a</span><span class="s">-</span><span class="se">\u000d\u0020\u0085\u00a0\u1680\u2000</span><span class="s">-</span><span class="se">\u200f\u2028\u2029\u202f\u205f\u3000</span><span class="s">]"</span><span class="p">)</span>
+<span class="k">var</span> <span class="n">directCleanRuleEqual</span> <span class="o">=</span> <span class="n">regexp</span><span class="o">.</span><span class="n">MustCompile</span><span class="p">(</span><span class="s">"=(u[a-zA-Z0-9]{4})"</span><span class="p">)</span>
+<span class="k">var</span> <span class="n">directCleanRule_1_5</span> <span class="o">=</span> <span class="n">regexp</span><span class="o">.</span><span class="n">MustCompile</span><span class="p">(</span><span class="s">"[</span><span class="se">\u0000</span><span class="s">-</span><span class="se">\u001F\u007F\n\r\t</span><span class="s">*?:</span><span class="se">\\</span><span class="s">[</span><span class="se">\\</span><span class="s">]</span><span class="se">\"</span><span class="s">&lt;&gt;|(){}&amp;'!</span><span class="se">\\</span><span class="s">;#@]"</span><span class="p">)</span>
+<span class="k">var</span> <span class="n">directCleanRule_2_4_6</span> <span class="o">=</span> <span class="n">regexp</span><span class="o">.</span><span class="n">MustCompile</span><span class="p">(</span><span class="s">"^[</span><span class="se">\\</span><span class="s">-~</span><span class="se">\u0009\u000a</span><span class="s">-</span><span class="se">\u000d\u0020\u0085\u00a0\u1680\u2000</span><span class="s">-</span><span class="se">\u200f\u2028\u2029\u202f\u205f\u3000</span><span class="s">]*(.*?)[</span><span class="se">\u0009\u000a</span><span class="s">-</span><span class="se">\u000d\u0020\u0085\u00a0\u1680\u2000</span><span class="s">-</span><span class="se">\u20a0\u2028\u2029\u202f\u205f\u3000</span><span class="s">]*$"</span><span class="p">)</span>
+<span class="k">var</span> <span class="n">directCleanRulePeriods</span> <span class="o">=</span> <span class="n">regexp</span><span class="o">.</span><span class="n">MustCompile</span><span class="p">(</span><span class="s">"^</span><span class="se">\\</span><span class="s">.+$"</span><span class="p">)</span>
+
+<span class="k">var</span> <span class="n">directCleanErrFilenameTooLong</span> <span class="o">=</span> <span class="n">errors</span><span class="o">.</span><span class="n">New</span><span class="p">(</span><span class="s">"filename too long"</span><span class="p">)</span>
+<span class="k">var</span> <span class="n">directCleanErrPathnameTooLong</span> <span class="o">=</span> <span class="n">errors</span><span class="o">.</span><span class="n">New</span><span class="p">(</span><span class="s">"pathname too long"</span><span class="p">)</span>
+
+<span class="k">type</span> <span class="n">DirectCleanConfig</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+	<span class="n">MaxPathnameLen</span>              <span class="kt">int</span>                      <span class="s">`json:"maxPathnameLen"`</span>
+	<span class="n">MaxFilenameLen</span>              <span class="kt">int</span>                      <span class="s">`json:"maxPathSegmentLen"`</span>
+	<span class="n">ReplacementString</span>           <span class="kt">string</span>                   <span class="s">`json:"replacementString"`</span>
+	<span class="n">WhitespaceReplacementString</span> <span class="kt">string</span>                   <span class="s">`json:"whitespaceReplacementString"`</span>
+	<span class="n">UTFEncode</span>                   <span class="kt">bool</span>                     <span class="s">`json:"encodeUTF"`</span>
+	<span class="n">FallbackDigestAlgorithm</span>     <span class="n">checksum</span><span class="o">.</span><span class="n">DigestAlgorithm</span> <span class="s">`json:"fallbackDigestAlgorithm"`</span>
+	<span class="n">FallbackFolder</span>              <span class="kt">string</span>                   <span class="s">`json:"fallbackFolder"`</span>
+	<span class="n">FallbackSubFolders</span>          <span class="kt">int</span>                      <span class="s">`json:"numberOfFallbackTuples"`</span>
+	<span class="n">hash</span>                        <span class="n">hash</span><span class="o">.</span><span class="n">Hash</span>                <span class="s">`json:"-"`</span>
+	<span class="n">hashMutex</span>                   <span class="n">sync</span><span class="o">.</span><span class="n">Mutex</span>               <span class="s">`json:"-"`</span>
+<span class="p">}</span>
+
+<span class="p">[</span><span class="o">...</span><span class="p">]</span>
+
+
+<span class="k">func</span> <span class="n">encodeUTFCode</span><span class="p">(</span><span class="n">s</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="s">"=u"</span> <span class="o">+</span> <span class="n">strings</span><span class="o">.</span><span class="n">Trim</span><span class="p">(</span><span class="n">fmt</span><span class="o">.</span><span class="n">Sprintf</span><span class="p">(</span><span class="s">"%U"</span><span class="p">,</span> <span class="p">[]</span><span class="kt">rune</span><span class="p">(</span><span class="n">s</span><span class="p">)),</span> <span class="s">"U+[]"</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="p">(</span><span class="n">sl</span> <span class="o">*</span><span class="n">DirectClean</span><span class="p">)</span> <span class="n">fallback</span><span class="p">(</span><span class="n">fname</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="kt">string</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c">// internal mutex for reusing the hash object</span>
+	<span class="n">sl</span><span class="o">.</span><span class="n">hashMutex</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+
+	<span class="c">// reset hash function</span>
+	<span class="n">sl</span><span class="o">.</span><span class="n">hash</span><span class="o">.</span><span class="n">Reset</span><span class="p">()</span>
+	<span class="c">// add path</span>
+	<span class="k">if</span> <span class="n">_</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">sl</span><span class="o">.</span><span class="n">hash</span><span class="o">.</span><span class="n">Write</span><span class="p">([]</span><span class="kt">byte</span><span class="p">(</span><span class="n">fname</span><span class="p">));</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="n">sl</span><span class="o">.</span><span class="n">hashMutex</span><span class="o">.</span><span class="n">Unlock</span><span class="p">()</span>
+		<span class="k">return</span> <span class="s">""</span><span class="p">,</span> <span class="n">errors</span><span class="o">.</span><span class="n">Wrapf</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="s">"cannot hash path '%s'"</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="n">sl</span><span class="o">.</span><span class="n">hashMutex</span><span class="o">.</span><span class="n">Unlock</span><span class="p">()</span>
+
+	<span class="c">// get digest and encode it</span>
+	<span class="n">digestString</span> <span class="o">:=</span> <span class="n">hex</span><span class="o">.</span><span class="n">EncodeToString</span><span class="p">(</span><span class="n">sl</span><span class="o">.</span><span class="n">hash</span><span class="o">.</span><span class="n">Sum</span><span class="p">(</span><span class="no">nil</span><span class="p">))</span>
+
+	<span class="c">// check whether digest fits in filename length</span>
+	<span class="n">parts</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="n">digestString</span><span class="p">)</span> <span class="o">/</span> <span class="n">sl</span><span class="o">.</span><span class="n">MaxPathSegmentLen</span>
+	<span class="n">rest</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="n">digestString</span><span class="p">)</span> <span class="o">%</span> <span class="n">sl</span><span class="o">.</span><span class="n">MaxPathSegmentLen</span>
+	<span class="k">if</span> <span class="n">rest</span> <span class="o">&gt;</span> <span class="m">0</span> <span class="p">{</span>
+		<span class="n">parts</span><span class="o">++</span>
+	<span class="p">}</span>
+	<span class="c">// cut the digest if it's too long for filename length</span>
+	<span class="n">result</span> <span class="o">:=</span> <span class="s">""</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="o">:=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">parts</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="n">result</span> <span class="o">=</span> <span class="n">filepath</span><span class="o">.</span><span class="n">Join</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">digestString</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="n">sl</span><span class="o">.</span><span class="n">MaxPathSegmentLen</span><span class="o">:</span><span class="n">min</span><span class="p">((</span><span class="n">i</span><span class="o">+</span><span class="m">1</span><span class="p">)</span><span class="o">*</span><span class="n">sl</span><span class="o">.</span><span class="n">MaxPathSegmentLen</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">digestString</span><span class="p">))])</span>
+	<span class="p">}</span>
+
+	<span class="c">// add all necessary subfolders</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="o">:=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">sl</span><span class="o">.</span><span class="n">NumberOfFallbackTuples</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="c">// paranoia, but safe</span>
+		<span class="n">result</span> <span class="o">=</span> <span class="n">filepath</span><span class="o">.</span><span class="n">Join</span><span class="p">(</span><span class="kt">string</span><span class="p">(([]</span><span class="kt">rune</span><span class="p">(</span><span class="n">digestString</span><span class="p">))[</span><span class="n">sl</span><span class="o">.</span><span class="n">NumberOfFallbackTuples</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="m">1</span><span class="o">:</span><span class="n">sl</span><span class="o">.</span><span class="n">NumberOfFallbackTuples</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="m">1</span><span class="o">+</span><span class="n">sl</span><span class="o">.</span><span class="n">FallbackTupleSize</span><span class="p">]),</span> <span class="n">result</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="n">result</span> <span class="o">=</span> <span class="n">strings</span><span class="o">.</span><span class="n">TrimLeft</span><span class="p">(</span><span class="n">filepath</span><span class="o">.</span><span class="n">ToSlash</span><span class="p">(</span><span class="n">filepath</span><span class="o">.</span><span class="n">Clean</span><span class="p">(</span><span class="n">filepath</span><span class="o">.</span><span class="n">Join</span><span class="p">(</span><span class="n">sl</span><span class="o">.</span><span class="n">FallbackFolder</span><span class="p">,</span> <span class="n">result</span><span class="p">))),</span> <span class="s">"/"</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">sl</span><span class="o">.</span><span class="n">MaxPathnameLen</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="n">result</span><span class="p">,</span> <span class="n">errors</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="s">"result has length of %d which is more than max allowed length of %d"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">),</span> <span class="n">sl</span><span class="o">.</span><span class="n">MaxPathnameLen</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="n">result</span><span class="p">,</span> <span class="no">nil</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="p">(</span><span class="n">sl</span> <span class="o">*</span><span class="n">DirectClean</span><span class="p">)</span> <span class="n">BuildPath</span><span class="p">(</span><span class="n">fname</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="kt">string</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+
+	<span class="c">// 1. Replace all non-UTF8 characters with replacementString</span>
+	<span class="n">fname</span> <span class="o">=</span> <span class="n">strings</span><span class="o">.</span><span class="n">ToValidUTF8</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">sl</span><span class="o">.</span><span class="n">ReplacementString</span><span class="p">)</span>
+
+	<span class="c">// 2. Split the string at path separator /</span>
+	<span class="n">names</span> <span class="o">:=</span> <span class="n">strings</span><span class="o">.</span><span class="n">Split</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s">"/"</span><span class="p">)</span>
+	<span class="n">result</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{}</span>
+
+	<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">n</span> <span class="o">:=</span> <span class="k">range</span> <span class="n">names</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="m">0</span> <span class="p">{</span>
+			<span class="k">continue</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="n">sl</span><span class="o">.</span><span class="n">UTFEncode</span> <span class="p">{</span>
+			<span class="c">// Replace `=` with `=u003D` if it is followed by `u` and four hex digits</span>
+			<span class="n">n</span> <span class="o">=</span> <span class="n">directCleanRuleEqual</span><span class="o">.</span><span class="n">ReplaceAllString</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s">"=u003D$1"</span><span class="p">)</span>
+			<span class="n">n</span> <span class="o">=</span> <span class="n">directCleanRuleAll</span><span class="o">.</span><span class="n">ReplaceAllStringFunc</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">encodeUTFCode</span><span class="p">)</span>
+			<span class="k">if</span> <span class="n">n</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="o">==</span> <span class="sc">'~'</span> <span class="o">||</span> <span class="n">directCleanRulePeriods</span><span class="o">.</span><span class="n">MatchString</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">n</span> <span class="o">=</span> <span class="n">encodeUTFCode</span><span class="p">(</span><span class="kt">string</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="m">0</span><span class="p">]))</span> <span class="o">+</span> <span class="n">n</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="p">]</span>
+			<span class="p">}</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="c">// Replace any whitespace character from this list with whitespaceReplacementString: U+0009 U+000A-U+000D U+0020 U+0085 U+00A0 U+1680 U+2000-U+200F U+2028 U+2029 U+202F U+205F U+3000</span>
+			<span class="n">n</span> <span class="o">=</span> <span class="n">directCleanRuleWhitespace</span><span class="o">.</span><span class="n">ReplaceAllString</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">sl</span><span class="o">.</span><span class="n">WhitespaceReplacementString</span><span class="p">)</span>
+			<span class="n">n</span> <span class="o">=</span> <span class="n">directCleanRule_1_5</span><span class="o">.</span><span class="n">ReplaceAllString</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">sl</span><span class="o">.</span><span class="n">ReplacementString</span><span class="p">)</span>
+			<span class="n">n</span> <span class="o">=</span> <span class="n">directCleanRule_2_4_6</span><span class="o">.</span><span class="n">ReplaceAllString</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s">"$1"</span><span class="p">)</span>
+			<span class="k">if</span> <span class="n">directCleanRulePeriods</span><span class="o">.</span><span class="n">MatchString</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">n</span> <span class="o">=</span> <span class="n">sl</span><span class="o">.</span><span class="n">ReplacementString</span> <span class="o">+</span> <span class="n">n</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="p">]</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+
+		<span class="n">lenN</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">lenN</span> <span class="o">&gt;</span> <span class="n">sl</span><span class="o">.</span><span class="n">MaxFilenameLen</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="n">sl</span><span class="o">.</span><span class="n">fallback</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+			<span class="c">//return "", errors.Wrapf(directCleanErrFilenameTooLong, "filename: %s", n)</span>
+		<span class="p">}</span>
+
+		<span class="k">if</span> <span class="n">lenN</span> <span class="o">&gt;</span> <span class="m">0</span> <span class="p">{</span>
+			<span class="n">result</span> <span class="o">=</span> <span class="nb">append</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="n">fname</span> <span class="o">=</span> <span class="n">strings</span><span class="o">.</span><span class="n">Join</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s">"/"</span><span class="p">)</span>
+
+	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">sl</span><span class="o">.</span><span class="n">MaxPathnameLen</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="n">sl</span><span class="o">.</span><span class="n">fallback</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+		<span class="c">//return "", errors.Wrapf(directCleanErrPathnameTooLong, "pathname: %s", fname)</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="n">fname</span><span class="p">,</span> <span class="no">nil</span>
+<span class="p">}</span>
+
+<span class="p">[</span><span class="o">...</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h1 id="appendix">Appendix</h1>
+
+<h2 id="utf-replacement-character-list">UTF Replacement Character List</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Decimal</th>
+      <th>Octal</th>
+      <th>Description</th>
+      <th>Abbreviation / Key</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>U+0000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Null character</td>
+      <td>NUL</td>
+    </tr>
+    <tr>
+      <td>U+0001</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Start of Heading</td>
+      <td>SOH / Ctrl-A</td>
+    </tr>
+    <tr>
+      <td>U+0002</td>
+      <td>2</td>
+      <td>2</td>
+      <td>Start of Text</td>
+      <td>STX / Ctrl-B</td>
+    </tr>
+    <tr>
+      <td>U+0003</td>
+      <td>3</td>
+      <td>3</td>
+      <td>End-of-text character</td>
+      <td>ETX / Ctrl-C1</td>
+    </tr>
+    <tr>
+      <td>U+0004</td>
+      <td>4</td>
+      <td>4</td>
+      <td>End-of-transmission character</td>
+      <td>EOT / Ctrl-D2</td>
+    </tr>
+    <tr>
+      <td>U+0005</td>
+      <td>5</td>
+      <td>5</td>
+      <td>Enquiry character</td>
+      <td>ENQ / Ctrl-E</td>
+    </tr>
+    <tr>
+      <td>U+0006</td>
+      <td>6</td>
+      <td>6</td>
+      <td>Acknowledge character</td>
+      <td>ACK / Ctrl-F</td>
+    </tr>
+    <tr>
+      <td>U+0007</td>
+      <td>7</td>
+      <td>7</td>
+      <td>Bell character</td>
+      <td>BEL / Ctrl-G3</td>
+    </tr>
+    <tr>
+      <td>U+0008</td>
+      <td>8</td>
+      <td>10</td>
+      <td>Backspace</td>
+      <td>BS / Ctrl-H</td>
+    </tr>
+    <tr>
+      <td>U+0009</td>
+      <td>9</td>
+      <td>11</td>
+      <td>Horizontal tab</td>
+      <td>HT / Ctrl-I</td>
+    </tr>
+    <tr>
+      <td>U+000A</td>
+      <td>10</td>
+      <td>12</td>
+      <td>Line feed</td>
+      <td>LF / Ctrl-J4</td>
+    </tr>
+    <tr>
+      <td>U+000B</td>
+      <td>11</td>
+      <td>13</td>
+      <td>Vertical tab</td>
+      <td>VT / Ctrl-K</td>
+    </tr>
+    <tr>
+      <td>U+000C</td>
+      <td>12</td>
+      <td>14</td>
+      <td>Form feed</td>
+      <td>FF / Ctrl-L</td>
+    </tr>
+    <tr>
+      <td>U+000D</td>
+      <td>13</td>
+      <td>15</td>
+      <td>Carriage return</td>
+      <td>CR / Ctrl-M5</td>
+    </tr>
+    <tr>
+      <td>U+000E</td>
+      <td>14</td>
+      <td>16</td>
+      <td>Shift Out</td>
+      <td>SO / Ctrl-N</td>
+    </tr>
+    <tr>
+      <td>U+000F</td>
+      <td>15</td>
+      <td>17</td>
+      <td>Shift In</td>
+      <td>SI / Ctrl-O6</td>
+    </tr>
+    <tr>
+      <td>U+0010</td>
+      <td>16</td>
+      <td>20</td>
+      <td>Data Link Escape</td>
+      <td>DLE / Ctrl-P</td>
+    </tr>
+    <tr>
+      <td>U+0011</td>
+      <td>17</td>
+      <td>21</td>
+      <td>Device Control 1</td>
+      <td>DC1 / Ctrl-Q7</td>
+    </tr>
+    <tr>
+      <td>U+0012</td>
+      <td>18</td>
+      <td>22</td>
+      <td>Device Control 2</td>
+      <td>DC2 / Ctrl-R</td>
+    </tr>
+    <tr>
+      <td>U+0013</td>
+      <td>19</td>
+      <td>23</td>
+      <td>Device Control 3</td>
+      <td>DC3 / Ctrl-S8</td>
+    </tr>
+    <tr>
+      <td>U+0014</td>
+      <td>20</td>
+      <td>24</td>
+      <td>Device Control 4</td>
+      <td>DC4 / Ctrl-T</td>
+    </tr>
+    <tr>
+      <td>U+0015</td>
+      <td>21</td>
+      <td>25</td>
+      <td>Negative-acknowledge character</td>
+      <td>NAK / Ctrl-U9</td>
+    </tr>
+    <tr>
+      <td>U+0016</td>
+      <td>22</td>
+      <td>26</td>
+      <td>Synchronous Idle</td>
+      <td>SYN / Ctrl-V</td>
+    </tr>
+    <tr>
+      <td>U+0017</td>
+      <td>23</td>
+      <td>27</td>
+      <td>End of Transmission Block</td>
+      <td>ETB / Ctrl-W</td>
+    </tr>
+    <tr>
+      <td>U+0018</td>
+      <td>24</td>
+      <td>30</td>
+      <td>Cancel character</td>
+      <td>CAN / Ctrl-X10</td>
+    </tr>
+    <tr>
+      <td>U+0019</td>
+      <td>25</td>
+      <td>31</td>
+      <td>End of Medium</td>
+      <td>EM / Ctrl-Y</td>
+    </tr>
+    <tr>
+      <td>U+001A</td>
+      <td>26</td>
+      <td>32</td>
+      <td>Substitute character</td>
+      <td>SUB / Ctrl-Z11</td>
+    </tr>
+    <tr>
+      <td>U+001B</td>
+      <td>27</td>
+      <td>33</td>
+      <td>Escape character</td>
+      <td>ESC</td>
+    </tr>
+    <tr>
+      <td>U+001C</td>
+      <td>28</td>
+      <td>34</td>
+      <td>File Separator</td>
+      <td>FS</td>
+    </tr>
+    <tr>
+      <td>U+001D</td>
+      <td>29</td>
+      <td>35</td>
+      <td>Group Separator</td>
+      <td>GS</td>
+    </tr>
+    <tr>
+      <td>U+001E</td>
+      <td>30</td>
+      <td>36</td>
+      <td>Record Separator</td>
+      <td>RS</td>
+    </tr>
+    <tr>
+      <td>U+001F</td>
+      <td>31</td>
+      <td>37</td>
+      <td>Unit Separator</td>
+      <td>US</td>
+    </tr>
+    <tr>
+      <td>U+001F</td>
+      <td>31</td>
+      <td>37</td>
+      <td>Unit Separator</td>
+      <td>US</td>
+    </tr>
+    <tr>
+      <td>U+0020</td>
+      <td>32</td>
+      <td>40</td>
+      <td>Space</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>U+007F</td>
+      <td>127</td>
+      <td>177</td>
+      <td>Delete</td>
+      <td>DEL</td>
+    </tr>
+    <tr>
+      <td>U+0085</td>
+      <td>133</td>
+      <td>0302 0205</td>
+      <td>Next Line</td>
+      <td>NEL</td>
+    </tr>
+    <tr>
+      <td>U+00A0</td>
+      <td>160</td>
+      <td>0302 0240</td>
+      <td> </td>
+      <td>Non-breaking space</td>
+    </tr>
+    <tr>
+      <td>U+1680</td>
+      <td>5760</td>
+      <td>13200</td>
+      <td> </td>
+      <td>OGHAM SPACE MARK</td>
+    </tr>
+    <tr>
+      <td>U+2000</td>
+      <td>8192</td>
+      <td>20000</td>
+      <td> </td>
+      <td>EN QUAD</td>
+    </tr>
+    <tr>
+      <td>U+2001</td>
+      <td>8193</td>
+      <td>20001</td>
+      <td> </td>
+      <td>EM QUAD</td>
+    </tr>
+    <tr>
+      <td>U+2002</td>
+      <td>8194</td>
+      <td>20002</td>
+      <td> </td>
+      <td>EN SPACE</td>
+    </tr>
+    <tr>
+      <td>U+2003</td>
+      <td>8195</td>
+      <td>20003</td>
+      <td> </td>
+      <td>EM SPACE</td>
+    </tr>
+    <tr>
+      <td>U+2004</td>
+      <td>8196</td>
+      <td>20004</td>
+      <td> </td>
+      <td>THREE-PER-EM SPACE</td>
+    </tr>
+    <tr>
+      <td>U+2005</td>
+      <td>8197</td>
+      <td>20005</td>
+      <td> </td>
+      <td>FOUR-PER-EM SPACE</td>
+    </tr>
+    <tr>
+      <td>U+2006</td>
+      <td>8198</td>
+      <td>20006</td>
+      <td> </td>
+      <td>SIX-PER-EM SPACE</td>
+    </tr>
+    <tr>
+      <td>U+2007</td>
+      <td>8199</td>
+      <td>20007</td>
+      <td> </td>
+      <td>FIGURE SPACE</td>
+    </tr>
+    <tr>
+      <td>U+2008</td>
+      <td>8200</td>
+      <td>20010</td>
+      <td> </td>
+      <td>PUNCTUATION SPACE</td>
+    </tr>
+    <tr>
+      <td>U+2009</td>
+      <td>8201</td>
+      <td>20011</td>
+      <td> </td>
+      <td>THIN SPACE</td>
+    </tr>
+    <tr>
+      <td>U+200A</td>
+      <td>8202</td>
+      <td>20012</td>
+      <td> </td>
+      <td>HAIR SPACE</td>
+    </tr>
+    <tr>
+      <td>U+200B</td>
+      <td>8203</td>
+      <td>20013</td>
+      <td> </td>
+      <td>ZERO WIDTH SPACE</td>
+    </tr>
+    <tr>
+      <td>U+200C</td>
+      <td>8204</td>
+      <td>20014</td>
+      <td> </td>
+      <td>ZERO WIDTH NON-JOINER</td>
+    </tr>
+    <tr>
+      <td>U+200D</td>
+      <td>8205</td>
+      <td>20015</td>
+      <td> </td>
+      <td>ZERO WIDTH JOINER</td>
+    </tr>
+    <tr>
+      <td>U+200E</td>
+      <td>8206</td>
+      <td>20016</td>
+      <td> </td>
+      <td>LEFT-TO-RIGHT MARK</td>
+    </tr>
+    <tr>
+      <td>U+200F</td>
+      <td>8207</td>
+      <td>20017</td>
+      <td> </td>
+      <td>RIGHT-TO-LEFT MARK</td>
+    </tr>
+    <tr>
+      <td>U+2028</td>
+      <td>8232</td>
+      <td>20050</td>
+      <td> </td>
+      <td>LINE SEPARATOR</td>
+    </tr>
+    <tr>
+      <td>U+2029</td>
+      <td>8233</td>
+      <td>20051</td>
+      <td> </td>
+      <td>PARAGRAPH SEPARATOR</td>
+    </tr>
+    <tr>
+      <td>U+205F</td>
+      <td>8287</td>
+      <td>20137</td>
+      <td> </td>
+      <td>MEDIUM MATHEMATICAL SPACE</td>
+    </tr>
+    <tr>
+      <td>U+3000</td>
+      <td>12288</td>
+      <td>30000</td>
+      <td> </td>
+      <td>IDEOGRAPHIC SPACE</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Wikipedia contributors. (2022, November 3). List of Unicode characters. In Wikipedia, The Free Encyclopedia. Retrieved 14:00, November 4, 2022, from https://en.wikipedia.org/w/index.php?title=List_of_Unicode_characters&amp;oldid=1119877694</li>
+  <li>Unicode/Character reference/2000-2FFF. (2021, September 27). Wikibooks, The Free Textbook Project. Retrieved 14:29, November 4, 2022 from https://en.wikibooks.org/w/index.php?title=Unicode/Character_reference/2000-2FFF&amp;oldid=3991460.</li>
+  <li>Unicode/Character reference/3000-3FFF. (2020, March 18). Wikibooks, The Free Textbook Project. Retrieved 14:50, November 4, 2022 from https://en.wikibooks.org/w/index.php?title=Unicode/Character_reference/3000-3FFF&amp;oldid=3668212.</li>
+</ul>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

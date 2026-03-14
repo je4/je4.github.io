@@ -1,6 +1,6 @@
 # Verwendung und Konfiguration von gocfl
 
-In diesem ersten Teil des Workshops machen wir uns mit der grundlegenden Bedienung und den Konfigurationsmöglichkeiten des Werkzeugs `gocfl` vertraut. Wir gehen davon aus, dass das Tool bereits in Ihrer Umgebung (oder im bereitgestellten Container) zur Verfügung steht.
+In diesem Teil des Workshops machen wir uns mit der grundlegenden Bedienung und den Konfigurationsmöglichkeiten des Werkzeugs `gocfl` vertraut. Wir setzen voraus, dass die [Installation](00_installation.md) erfolgreich abgeschlossen wurde.
 
 ## 1. Grundlegende Befehlsstruktur
 
@@ -69,4 +69,4 @@ gocfl --version
 
 ---
 
-[Zurück zum Inhaltsverzeichnis](toc.md) | [Nächstes Thema: Initialisierung einer Storage Root](02_storage_root.md)
+[Zurück zur Installation](00_installation.md) | [Zurück zum Inhaltsverzeichnis](toc.md) | [Nächstes Thema: Initialisierung einer Storage Root](02_storage_root.md)
