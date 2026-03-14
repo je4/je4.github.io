@@ -1,3 +1,5 @@
+[English](01a_gocfl_config_en.md)
+
 # Überblick über die gocfl.toml Konfigurationsdatei
 
 Die Konfigurationsdatei [gocfl.toml](gocfl.toml) ist das zentrale Element für die Steuerung komplexer Abläufe in `gocfl`. Sie erlaubt es, Standardwerte für Befehle festzulegen und die weitreichenden Funktionen der Submodule zu konfigurieren.

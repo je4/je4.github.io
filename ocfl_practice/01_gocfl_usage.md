@@ -1,3 +1,5 @@
+[English](01_gocfl_usage_en.md)
+
 # Verwendung und Konfiguration von gocfl
 
 In diesem Teil des Workshops machen wir uns mit der grundlegenden Bedienung und den Konfigurationsmöglichkeiten des Werkzeugs `gocfl` vertraut. Wir setzen voraus, dass die [Installation](00_installation.md) erfolgreich abgeschlossen wurde.

@@ -1,3 +1,5 @@
+[English](07_validate_object_en.md)
+
 # Validierung (validate)
 
 Ein entscheidender Vorteil von OCFL ist die Integritätssicherung. Mit `gocfl` lässt sich jederzeit überprüfen, ob eine Storage Root oder ein einzelnes Objekt noch der Spezifikation entspricht und ob alle Prüfsummen (Digests) korrekt sind.

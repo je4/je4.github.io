@@ -1,3 +1,5 @@
+[English](08_display_object_en.md)
+
 # Anzeige im Webbrowser (display)
 
 OCFL-Objekte sind zwar dateisystembasiert und für Menschen lesbar, aber die Navigation durch die verschiedenen Versionen und das Betrachten von Metadaten direkt in der Verzeichnisstruktur kann unübersichtlich sein. `gocfl` bietet hierfür einen eingebauten Web-Viewer an.

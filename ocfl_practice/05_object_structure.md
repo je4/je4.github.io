@@ -1,3 +1,5 @@
+[English](05_object_structure_en.md)
+
 # Die Verzeichnisstruktur eines OCFL-Objekts
 
 Nachdem ein Objekt mit dem `add`-Befehl hinzugefügt wurde, wird es gemäß dem konfigurierten Storage-Layout in der Storage Root abgelegt. In unserem Workshop-Beispiel liegt das Objekt unter:

@@ -1,3 +1,5 @@
+[English](02_storage_root_en.md)
+
 # Initialisierung einer OCFL Storage Root
 
 Nachdem wir uns mit den Grundlagen und der Konfiguration von `gocfl` vertraut gemacht haben, ist der erste praktische Schritt in einem OCFL-basierten Archiv die Erstellung einer **Storage Root**.

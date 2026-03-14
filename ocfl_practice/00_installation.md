@@ -1,3 +1,5 @@
+[English](00_installation_en.md)
+
 # Installation von gocfl
 
 Bevor wir mit dem Workshop beginnen, muss `gocfl` auf Ihrem System installiert werden. Da `gocfl` in Go geschrieben ist, kann es direkt über den Go-Paketmanager installiert werden.
