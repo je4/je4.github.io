@@ -60,4 +60,4 @@ The management of different **data areas** is handled by the `NNNN-content-subpa
 
 ---
 
-[Back to Display in Web Browser](../08_display_object_en) | [Back to Table of Contents](../toc_en)
+[Back to Display in Web Browser](../08_display_object_en) | [Next to Extracting Metadata](../10_extract_metadata_en) | [Back to Table of Contents](../toc_en)

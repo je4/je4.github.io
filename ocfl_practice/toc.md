@@ -42,3 +42,6 @@ Dieser Workshop ist als „Live-Lab“ konzipiert und führt Schritt für Schrit
 ## 10. Extrahieren von Inhalten (extract)
 - **[Extrahieren von Inhalten (extract)](../09_extract_object)**
 
+## 11. Extrahieren von Metadaten (extractmeta)
+- **[Extrahieren von Metadaten (extractmeta)](../10_extract_metadata)**
+

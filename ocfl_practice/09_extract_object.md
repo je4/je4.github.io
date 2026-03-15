@@ -60,4 +60,4 @@ Die Verwaltung der verschiedenen **Datenbereiche (Areas)** erfolgt dabei über d
 
 ---
 
-[Zurück zur Anzeige im Webbrowser](../08_display_object) | [Zurück zum Inhaltsverzeichnis](../toc)
+[Zurück zur Anzeige im Webbrowser](../08_display_object) | [Weiter zum Extrahieren von Metadaten](../10_extract_metadata) | [Zurück zum Inhaltsverzeichnis](../toc)

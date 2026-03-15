@@ -41,3 +41,6 @@ This workshop is designed as a "Live-Lab" and leads step-by-step through working
 
 ## 10. Extracting Content (extract)
 - **[Extracting Content (extract)](../09_extract_object_en)**
+
+## 11. Extracting Metadata (extractmeta)
+- **[Extracting Metadata (extractmeta)](../10_extract_metadata_en)**
