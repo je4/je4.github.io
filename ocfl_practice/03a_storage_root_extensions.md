@@ -58,16 +58,28 @@ In der `ocfl_layout.json` wird auf die Erweiterung [0004-hashed-n-tuple-storage-
 Inhalt der `config.json`:
 ```json
 {
-   "extensionName": "0004-hashed-n-tuple-storage-layout"
+   "extensionName": "0004-hashed-n-tuple-storage-layout",
+   "digestAlgorithm": "sha256",
+   "tupleSize": 3,
+   "numberOfTuples": 3,
+   "shortObjectRoot": false
 }
 ```
 Diese Datei steuert (zusammen mit den Angaben in `ocfl_layout.json`), wie tief die Verzeichnisstruktur geschachtelt wird und welcher Hash-Algorithmus für die Pfadbildung genutzt wird. In der Minimalversion reicht hier oft der Name der Extension aus, da die Spezifikation Standardwerte (Defaults) vorsieht.
+
+#### Erläuterung der Parameter:
+- **`extensionName`**: Der offizielle Name der Erweiterung (`0004-hashed-n-tuple-storage-layout`).
+- **`digestAlgorithm`**: Der Hash-Algorithmus (hier `sha256`), der auf die Objekt-ID angewendet wird, um den Verzeichnisnamen zu generieren. Dies stellt eine gleichmäßige Verteilung der Objekte sicher.
+- **`tupleSize`**: Bestimmt, wie viele Zeichen des Hashes für ein Verzeichnissegment verwendet werden. Bei `3` entstehen Ordnernamen wie `1f7`.
+- **`numberOfTuples`**: Legt fest, wie viele dieser Segmente nacheinander als Unterverzeichnisse erstellt werden (Verschachtelungstiefe). Bei `3` ergibt dies einen Pfad wie `1f7/d28/1ac/`.
+- **`shortObjectRoot`**: Wenn `false` (Standard), wird am Ende des Pfads der komplette Hash als Verzeichnisname für das Objekt verwendet. Wenn `true`, wird nur der restliche Teil des Hashes verwendet.
 
 #### Standardwerte der Extension 0004:
 Wenn diese Parameter nicht in der `config.json` definiert sind, gelten folgende Defaults gemäß Spezifikation:
 - **`digestAlgorithm`**: `sha256` (Der Algorithmus, der zur Berechnung des Hash-Werts der Objekt-ID verwendet wird).
 - **`tupleSize`**: `3` (Anzahl der Zeichen pro Verzeichnisebene).
 - **`numberTuples`**: `3` (Anzahl der Verzeichnisebenen, die durch das Hashing erstellt werden).
+- **`shortObjectRoot`**: `false` (Bestimmt, ob am Ende des Pfads nur der restliche Teil des Hashes verwendet wird).
 
 Das bedeutet, ein Objekt wird standardmäßig in einer Struktur wie `[hash1-3]/[hash4-6]/[hash7-9]/[objekt-id]` abgelegt.
 

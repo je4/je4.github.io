@@ -35,3 +35,6 @@ This workshop is designed as a "Live-Lab" and leads step-by-step through working
 
 ## 9. Display in Web Browser (display)
 - **[Display in Web Browser (display)](../08_display_object_en)**
+
+## 10. Extracting Content (extract)
+- **[Extracting Content (extract)](../09_extract_object_en)**

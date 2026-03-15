@@ -36,3 +36,6 @@ Dieser Workshop ist als „Live-Lab“ konzipiert und führt Schritt für Schrit
 ## 9. Anzeige im Webbrowser (display)
 - **[Anzeige im Webbrowser (display)](../08_display_object)**
 
+## 10. Extrahieren von Inhalten (extract)
+- **[Extrahieren von Inhalten (extract)](../09_extract_object)**
+

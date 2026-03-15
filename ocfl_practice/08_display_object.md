@@ -51,4 +51,4 @@ Da der Befehl den Terminal-Prozess blockiert, während der Server läuft, kann d
 
 ---
 
-[Zurück zur Validierung](../07_validate_object) | [Zurück zum Inhaltsverzeichnis](../TOC)
+[Zurück zur Validierung](../07_validate_object) | [Zurück zum Inhaltsverzeichnis](../toc) | [Nächstes Thema: Extrahieren von Inhalten](../09_extract_object)

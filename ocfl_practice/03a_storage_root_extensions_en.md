@@ -58,16 +58,28 @@ The `ocfl_layout.json` refers to the [0004-hashed-n-tuple-storage-layout](https:
 Content of `config.json`:
 ```json
 {
-   "extensionName": "0004-hashed-n-tuple-storage-layout"
+   "extensionName": "0004-hashed-n-tuple-storage-layout",
+   "digestAlgorithm": "sha256",
+   "tupleSize": 3,
+   "numberOfTuples": 3,
+   "shortObjectRoot": false
 }
 ```
 This file (along with the information in `ocfl_layout.json`) controls how deeply the directory structure is nested and which hash algorithm is used for path formation. In the minimal version, the name of the extension is often sufficient as the specification provides default values.
+
+#### Explanation of Parameters:
+- **`extensionName`**: The official name of the extension (`0004-hashed-n-tuple-storage-layout`).
+- **`digestAlgorithm`**: The hash algorithm (here `sha256`) applied to the object ID to generate the directory name. This ensures a balanced distribution of objects.
+- **`tupleSize`**: Determines how many characters of the hash are used for each directory segment. With `3`, folder names like `1f7` are created.
+- **`numberOfTuples`**: Defines how many such segments are created sequentially as subdirectories (nesting depth). With `3`, this results in a path like `1f7/d28/1ac/`.
+- **`shortObjectRoot`**: If `false` (default), the complete hash is used as the directory name for the object at the end of the path. If `true`, only the remaining part of the hash is used.
 
 #### Default Values for Extension 0004:
 If these parameters are not defined in `config.json`, the following defaults apply according to the specification:
 - **`digestAlgorithm`**: `sha256` (The algorithm used to calculate the hash value of the object ID).
 - **`tupleSize`**: `3` (Number of characters per directory level).
 - **`numberTuples`**: `3` (Number of directory levels created by hashing).
+- **`shortObjectRoot`**: `false` (Determines whether only the remaining part of the hash is used at the end of the path).
 
 This means an object is stored by default in a structure like `[hash1-3]/[hash4-6]/[hash7-9]/[object-id]`.
 

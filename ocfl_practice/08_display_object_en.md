@@ -51,4 +51,4 @@ Since the command blocks the terminal process while the server is running, the v
 
 ---
 
-[Back to Validation](../07_validate_object_en) | [Back to Table of Contents](../toc_en)
+[Back to Validation](../07_validate_object_en) | [Back to Table of Contents](../toc_en) | [Next Topic: Extracting Content](../09_extract_object_en)
