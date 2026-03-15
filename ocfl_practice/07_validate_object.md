@@ -1,4 +1,6 @@
-[English](07_validate_object_en.md)
+---
+---
+[English](07_validate_object_en)
 
 # Validierung (validate)
 
@@ -87,4 +89,4 @@ no errors found
 
 ---
 
-[Zurück zum Aktualisieren eines Objektes](06_update_object.md) | [Zurück zum Inhaltsverzeichnis](toc.md) | [Weiter zur Anzeige (display)](08_display_object.md)
+[Zurück zum Aktualisieren eines Objektes](06_update_object) | [Zurück zum Inhaltsverzeichnis](toc) | [Weiter zur Anzeige (display)](08_display_object)

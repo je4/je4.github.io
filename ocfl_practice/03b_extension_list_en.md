@@ -1,4 +1,6 @@
-[Deutsch](03b_extension_list.md)
+---
+---
+[Deutsch](03b_extension_list)
 
 # List of Used OCFL Extensions
 
@@ -35,4 +37,4 @@ These extensions serve to make the content of the object more quickly graspable 
 
 ---
 
-[Back to Object Structure](05_object_structure_en.md) | [Back to Table of Contents](toc_en.md)
+[Back to Object Structure](05_object_structure_en) | [Back to Table of Contents](toc_en)

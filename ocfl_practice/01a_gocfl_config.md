@@ -1,4 +1,6 @@
-[English](01a_gocfl_config_en.md)
+---
+---
+[English](01a_gocfl_config_en)
 
 # Überblick über die gocfl.toml Konfigurationsdatei
 
@@ -46,4 +48,4 @@ Konfiguration für spezifische OCFL-Erweiterungen, wie z.B. die Integration von 
 
 ---
 
-[Zurück zur Verwendung von gocfl](01_gocfl_usage.md) | [Zurück zum Inhaltsverzeichnis](toc.md) | [Nächstes Thema: Initialisierung einer Storage Root](02_storage_root.md)
+[Zurück zur Verwendung von gocfl](01_gocfl_usage) | [Zurück zum Inhaltsverzeichnis](toc) | [Nächstes Thema: Initialisierung einer Storage Root](02_storage_root)

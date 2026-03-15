@@ -1,4 +1,6 @@
-[Deutsch](08_display_object.md)
+---
+---
+[Deutsch](08_display_object)
 
 # Display in Web Browser (display)
 
@@ -49,4 +51,4 @@ Since the command blocks the terminal process while the server is running, the v
 
 ---
 
-[Back to Validation](07_validate_object_en.md) | [Back to Table of Contents](toc_en.md)
+[Back to Validation](07_validate_object_en) | [Back to Table of Contents](toc_en)

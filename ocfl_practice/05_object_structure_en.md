@@ -1,4 +1,6 @@
-[Deutsch](05_object_structure.md)
+---
+---
+[Deutsch](05_object_structure)
 
 # The Directory Structure of an OCFL Object
 
@@ -136,8 +138,8 @@ This group serves to provide a quick overview of the content:
 - **`thumbnails/`**: The `NNNN-thumbnail` extension has automatically generated small preview images for supported file types (images, videos, PDFs). These are located in the subdirectory `metadata/thumbnails/v1/` and are listed in the corresponding index file (`thumbnail_v1.jsonl.gz`).
 
 ## 3. Extensions in the Object
-Like the storage root, each object also has an `extensions/` directory. Here, `gocfl` stores the configurations for all active extensions. A complete list of all extensions can be found under **[List of OCFL Extensions](03b_extension_list_en.md)**.
+Like the storage root, each object also has an `extensions/` directory. Here, `gocfl` stores the configurations for all active extensions. A complete list of all extensions can be found under **[List of OCFL Extensions](03b_extension_list_en)**.
 
 ---
 
-[Back to Adding Objects](04_add_object_en.md) | [Back to Table of Contents](toc_en.md) | [Next Topic: Updating Objects](06_update_object_en.md)
+[Back to Adding Objects](04_add_object_en) | [Back to Table of Contents](toc_en) | [Next Topic: Updating Objects](06_update_object_en)

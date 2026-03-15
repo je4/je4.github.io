@@ -1,4 +1,6 @@
-[English](06_update_object_en.md)
+---
+---
+[English](06_update_object_en)
 
 # Aktualisieren eines Objektes (update)
 
@@ -131,4 +133,4 @@ In `v2` wird keine neue Datei physisch gespeichert. Das Inventar referenziert f�
 
 ---
 
-[Zur체ck zur Objektstruktur](05_object_structure.md) | [Zur체ck zum Inhaltsverzeichnis](toc.md) | [N채chstes Thema: Validierung](07_validate_object.md)
+[Zur체ck zur Objektstruktur](05_object_structure) | [Zur체ck zum Inhaltsverzeichnis](toc) | [N채chstes Thema: Validierung](07_validate_object)

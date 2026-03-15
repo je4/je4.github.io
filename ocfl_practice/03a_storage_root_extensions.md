@@ -1,4 +1,6 @@
-[English](03a_storage_root_extensions_en.md)
+---
+---
+[English](03a_storage_root_extensions_en)
 
 # OCFL Storage Root Extensions
 
@@ -71,4 +73,4 @@ Das bedeutet, ein Objekt wird standardmäßig in einer Struktur wie `[hash1-3]/[
 
 ---
 
-[Zurück zu OCFL Extensions](03_extensions.md) | [Zurück zum Inhaltsverzeichnis](toc.md)
+[Zurück zu OCFL Extensions](03_extensions) | [Zurück zum Inhaltsverzeichnis](toc)

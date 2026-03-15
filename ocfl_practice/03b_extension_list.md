@@ -1,4 +1,6 @@
-[English](03b_extension_list_en.md)
+---
+---
+[English](03b_extension_list_en)
 
 # Liste der verwendeten OCFL Extensions
 
@@ -35,4 +37,4 @@ Diese Erweiterungen dienen dazu, den Inhalt des Objekts für menschliche Nutzer 
 
 ---
 
-[Zurück zur Objektstruktur](05_object_structure.md) | [Zurück zum Inhaltsverzeichnis](toc.md)
+[Zurück zur Objektstruktur](05_object_structure) | [Zurück zum Inhaltsverzeichnis](toc)

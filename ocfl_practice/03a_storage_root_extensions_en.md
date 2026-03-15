@@ -1,4 +1,6 @@
-[Deutsch](03a_storage_root_extensions.md)
+---
+---
+[Deutsch](03a_storage_root_extensions)
 
 # OCFL Storage Root Extensions
 
@@ -71,4 +73,4 @@ This means an object is stored by default in a structure like `[hash1-3]/[hash4-
 
 ---
 
-[Back to OCFL Extensions](03_extensions_en.md) | [Back to Table of Contents](toc_en.md)
+[Back to OCFL Extensions](03_extensions_en) | [Back to Table of Contents](toc_en)

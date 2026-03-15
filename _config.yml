@@ -1,2 +1,8 @@
 theme: jekyll-theme-minimal
 markdown: kramdown
+permalink: pretty
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default

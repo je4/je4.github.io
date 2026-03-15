@@ -1,4 +1,6 @@
-[Deutsch](06_update_object.md)
+---
+---
+[Deutsch](06_update_object)
 
 # Updating an Object (update)
 
@@ -131,4 +133,4 @@ In `v2`, no new file is physically stored. The inventory simply references the d
 
 ---
 
-[Back to Object Structure](05_object_structure_en.md) | [Back to Table of Contents](toc_en.md) | [Next Topic: Validation](07_validate_object_en.md)
+[Back to Object Structure](05_object_structure_en) | [Back to Table of Contents](toc_en) | [Next Topic: Validation](07_validate_object_en)
