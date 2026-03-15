@@ -1,11 +1,9 @@
-theme: pages-themes/minimal@v0.2.0
+theme: jekyll-theme-minimal
 title: ""
 description: ""
 show_downloads: false
 markdown: kramdown
 permalink: pretty
-plugins:
-  - jekyll-remote-theme
 defaults:
   - scope:
       path: ""
