@@ -1,6 +1,6 @@
 ---
 ---
-[Deutsch](07_validate_object)
+[Deutsch](../07_validate_object)
 
 # Validation (validate)
 
@@ -89,4 +89,4 @@ no errors found
 
 ---
 
-[Back to Updating an Object](06_update_object_en) | [Back to Table of Contents](toc_en) | [Next to Display (display)](08_display_object_en)
+[Back to Updating an Object](../06_update_object_en) | [Back to Table of Contents](../toc_en) | [Next to Display (display)](../08_display_object_en)

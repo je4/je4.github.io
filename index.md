@@ -1,6 +1,6 @@
 ---
 ---
-[English](index_en)
+[English](../index_en)
 
 # OCFL Workshop: OCFL Standard in der Praxis
 
@@ -10,8 +10,8 @@ Willkommen zum Workshop **OCFL Standard in der Praxis**. In diesem Workshop lern
 
 Die vollständige Dokumentation und der Ablauf des Workshops sind im Unterverzeichnis `ocfl_practice` verfügbar:
 
-- **[Einführung & Übersicht](ocfl_practice/index)** – Ein kurzer Abstract und Hintergrundinformationen zu OCFL und `gocfl`.
-- **[Inhaltsverzeichnis (TOC)](ocfl_practice/toc)** – Der schrittweise Leitfaden durch den Workshop.
+- **[Einführung & Übersicht](../ocfl_practice/index)** – Ein kurzer Abstract und Hintergrundinformationen zu OCFL und `gocfl`.
+- **[Inhaltsverzeichnis (TOC)](../ocfl_practice/toc)** – Der schrittweise Leitfaden durch den Workshop.
 
 ---
 Dieser Workshop wurde im Rahmen des „Live-Lab“ erstellt.

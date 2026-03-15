@@ -1,6 +1,6 @@
 ---
 ---
-[Deutsch](02_storage_root)
+[Deutsch](../02_storage_root)
 
 # Initializing an OCFL Storage Root
 
@@ -23,10 +23,10 @@ According to the [OCFL Specification on Root Structure](https://ocfl.io/1.1/spec
 
 ### Optional Components
 -   **`ocfl_layout.json`**: Recommended to define the mapping of object IDs to directory paths.
--   **`extensions/`**: A directory for extension configurations (see [OCFL Storage Root Extensions](03a_storage_root_extensions_en)).
+-   **`extensions/`**: A directory for extension configurations (see [OCFL Storage Root Extensions](../03a_storage_root_extensions_en)).
 
 ### Important Structure Rules
--   **No Foreign Folders**: In the storage root, the **only** permitted directories are the `extensions` folder (see [OCFL Storage Root Extensions](03a_storage_root_extensions_en)) and the directory structures for **OCFL objects**. Other folders are not allowed.
+-   **No Foreign Folders**: In the storage root, the **only** permitted directories are the `extensions` folder (see [OCFL Storage Root Extensions](../03a_storage_root_extensions_en)) and the directory structures for **OCFL objects**. Other folders are not allowed.
 -   **Additional Files**: Other files (such as the `.md` files created by `gocfl`) may be present as long as they do not collide with reserved names or object directories. They serve as **self-documentation**.
 
 ## 3. The Command `gocfl init`
@@ -78,7 +78,7 @@ test42/
 1.  **`0=ocfl_1.1`**: In the specification, this file is called `ocfl_1.1.txt`. `gocfl` uses this name by default to declare the version of the storage root. It is empty and serves only as a "name tag".
 2.  **`ocfl_layout.json`**: This file is crucial for scalability. In our example, [0004-hashed-n-tuple-storage-layout](https://ocfl.github.io/extensions/0004-hashed-n-tuple-storage-layout.html) is used. This means that object IDs (like `ark:/12345/bcd987`) are hashed and distributed into subdirectories (e.g., `a1b/2c3/d4e/...`) to prevent too many folders in a single directory.
 3.  **`ocfl_spec_1.1.md`**: This file contains the complete OCFL specification directly in the storage root. Thus, the root is not only **self-contained** (all data is present) but also **self-describing**, as the rules for access and interpretation are provided directly.
-4.  **`extensions/`**: Here are the configuration files (`config.json`) for the extensions (see [OCFL Storage Root Extensions](03a_storage_root_extensions_en)).
+4.  **`extensions/`**: Here are the configuration files (`config.json`) for the extensions (see [OCFL Storage Root Extensions](../03a_storage_root_extensions_en)).
     - `0004-...` configures the layout mentioned above.
     - `initial` determines which extension is loaded first (in our case, the `NNNN-gocfl-extension-manager`).
     - `NNNN-gocfl-extension-manager` is a `gocfl`-specific extension responsible solely for initializing the storage root.
@@ -86,4 +86,4 @@ test42/
 
 ---
 
-[Back to Table of Contents](toc_en) | [Next Topic: OCFL Extensions](03_extensions_en)
+[Back to Table of Contents](../toc_en) | [Next Topic: OCFL Extensions](../03_extensions_en)

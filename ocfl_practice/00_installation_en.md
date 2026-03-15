@@ -1,6 +1,6 @@
 ---
 ---
-[Deutsch](00_installation)
+[Deutsch](../00_installation)
 
 # Installation of gocfl
 
@@ -31,4 +31,4 @@ If the command is not found, ensure that your `GOBIN` directory (typically `$HOM
 
 ---
 
-[Next to gocfl Usage](01_gocfl_usage_en) | [Back to Table of Contents](toc_en)
+[Next to gocfl Usage](../01_gocfl_usage_en) | [Back to Table of Contents](../toc_en)

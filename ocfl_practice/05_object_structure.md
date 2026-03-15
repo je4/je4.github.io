@@ -1,6 +1,6 @@
 ---
 ---
-[English](05_object_structure_en)
+[English](../05_object_structure_en)
 
 # Die Verzeichnisstruktur eines OCFL-Objekts
 
@@ -87,7 +87,7 @@ Hier ist die tatsächliche Verzeichnisstruktur des OCFL-Objekts (v1.1) nach dem 
                         00006.png
 ```
 
-Eine detaillierte Darstellung der Struktur nach einem Update (v2) finden Sie im Kapitel **[Aktualisieren eines Objektes](06_update_object#3-struktur-nach-dem-update)**.
+Eine detaillierte Darstellung der Struktur nach einem Update (v2) finden Sie im Kapitel **[Aktualisieren eines Objektes](../06_update_object#3-struktur-nach-dem-update)**.
 
 ## 2. Erläuterung der Komponenten
 
@@ -138,8 +138,8 @@ Diese Gruppe dient dem schnellen Überblick über den Inhalt:
 - **`thumbnails/`**: Die Erweiterung `NNNN-thumbnail` hat für unterstützte Dateitypen (Bilder, Videos, PDFs) automatisch Vorschaubilder generiert. Diese liegen im Unterordner `metadata/thumbnails/v1/` und sind in der entsprechenden Index-Datei (`thumbnail_v1.jsonl.gz`) verzeichnet.
 
 ## 3. Extensions im Objekt
-Wie die Storage Root besitzt auch jedes Objekt ein `extensions/`-Verzeichnis. Hier speichert `gocfl` die Konfigurationen für alle aktiven Erweiterungen. Eine vollständige Liste aller Extensions finden Sie unter **[Liste der OCFL Extensions](03b_extension_list)**.
+Wie die Storage Root besitzt auch jedes Objekt ein `extensions/`-Verzeichnis. Hier speichert `gocfl` die Konfigurationen für alle aktiven Erweiterungen. Eine vollständige Liste aller Extensions finden Sie unter **[Liste der OCFL Extensions](../03b_extension_list)**.
 
 ---
 
-[Zurück zum Hinzufügen von Objekten](04_add_object) | [Zurück zum Inhaltsverzeichnis](TOC) | [Nächstes Thema: Objekt aktualisieren](06_update_object)
+[Zurück zum Hinzufügen von Objekten](../04_add_object) | [Zurück zum Inhaltsverzeichnis](../toc) | [Nächstes Thema: Objekt aktualisieren](../06_update_object)

@@ -1,10 +1,10 @@
 ---
 ---
-[Deutsch](01a_gocfl_config)
+[Deutsch](../01a_gocfl_config)
 
 # Overview of the gocfl.toml Configuration File
 
-The configuration file [gocfl.toml](gocfl.toml) is the central element for controlling complex processes in `gocfl`. It allows setting default values for commands and configuring the extensive functions of the submodules.
+The configuration file [gocfl.toml](../gocfl.toml) is the central element for controlling complex processes in `gocfl`. It allows setting default values for commands and configuring the extensive functions of the submodules.
 
 Here is an overview of the main sections of the file:
 
@@ -48,4 +48,4 @@ Configuration for specific OCFL extensions, such as the integration of METS file
 
 ---
 
-[Back to gocfl Usage](01_gocfl_usage_en) | [Back to Table of Contents](toc_en) | [Next Topic: Initializing a Storage Root](02_storage_root_en)
+[Back to gocfl Usage](../01_gocfl_usage_en) | [Back to Table of Contents](../toc_en) | [Next Topic: Initializing a Storage Root](../02_storage_root_en)

@@ -1,6 +1,6 @@
 ---
 ---
-[English](08_display_object_en)
+[English](../08_display_object_en)
 
 # Anzeige im Webbrowser (display)
 
@@ -51,4 +51,4 @@ Da der Befehl den Terminal-Prozess blockiert, während der Server läuft, kann d
 
 ---
 
-[Zurück zur Validierung](07_validate_object) | [Zurück zum Inhaltsverzeichnis](TOC)
+[Zurück zur Validierung](../07_validate_object) | [Zurück zum Inhaltsverzeichnis](../TOC)

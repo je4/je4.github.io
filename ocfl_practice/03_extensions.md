@@ -1,6 +1,6 @@
 ---
 ---
-[English](03_extensions_en)
+[English](../03_extensions_en)
 
 # OCFL Extensions (Erweiterungen)
 
@@ -24,8 +24,8 @@ Erweiterungen befinden sich sowohl in der Storage Root als auch in den einzelnen
 
 Wie wir bei der Initialisierung der Storage Root gesehen haben, legt `gocfl` automatisch Konfigurationsverzeichnisse an. Eine detaillierte Übersicht über die in diesem Workshop verwendeten Erweiterungen finden Sie hier:
 
-- **[OCFL Storage Root Extensions (initial, manager, layout)](03a_storage_root_extensions)**
-- **[Detaillierte Liste aller verwendeten Extensions](03b_extension_list)**
+- **[OCFL Storage Root Extensions (initial, manager, layout)](../03a_storage_root_extensions)**
+- **[Detaillierte Liste aller verwendeten Extensions](../03b_extension_list)**
 
 ## 4. Aufrufpunkte (Hooks) in gocfl
 
@@ -94,4 +94,4 @@ Dies garantiert, dass auch in Jahrzehnten noch nachvollziehbar ist, welche Regel
 
 ---
 
-[Zurück zum Inhaltsverzeichnis](toc) | [Nächstes Thema: Erstellung von Objekten](04_add_object)
+[Zurück zum Inhaltsverzeichnis](../toc) | [Nächstes Thema: Erstellung von Objekten](../04_add_object)

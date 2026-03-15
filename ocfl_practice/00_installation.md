@@ -1,6 +1,6 @@
 ---
 ---
-[English](00_installation_en)
+[English](../00_installation_en)
 
 # Installation von gocfl
 
@@ -31,4 +31,4 @@ Sollte der Befehl nicht gefunden werden, stellen Sie sicher, dass Ihr `GOBIN`-Ve
 
 ---
 
-[Weiter zur Benutzung von gocfl](01_gocfl_usage) | [Zurück zum Inhaltsverzeichnis](TOC)
+[Weiter zur Benutzung von gocfl](../01_gocfl_usage) | [Zurück zum Inhaltsverzeichnis](../TOC)

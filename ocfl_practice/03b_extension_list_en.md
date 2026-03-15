@@ -1,6 +1,6 @@
 ---
 ---
-[Deutsch](03b_extension_list)
+[Deutsch](../03b_extension_list)
 
 # List of Used OCFL Extensions
 
@@ -19,8 +19,8 @@ These extensions are active within the individual OCFL objects. We divide them h
 ### A. Path and Layout Extensions
 These extensions determine how files are physically stored and named within the object.
 
-- **`0011-direct-clean-path-layout`**: Cleans up filenames for maximum system compatibility (e.g., replacing spaces with `=u0020`). For details, see **[Object Structure](05_object_structure_en#filename-cleanup-0011-direct-clean-path-layout)**.
-- **`NNNN-content-subpath`**: Splits the `content` directory into logical areas such as `data/` (user data) and `metadata/` (generated data). For details, see **[Object Structure](05_object_structure_en#content-structure-data--metadata-and-nnnn-content-subpath)**.
+- **`0011-direct-clean-path-layout`**: Cleans up filenames for maximum system compatibility (e.g., replacing spaces with `=u0020`). For details, see **[Object Structure](../05_object_structure_en#filename-cleanup-0011-direct-clean-path-layout)**.
+- **`NNNN-content-subpath`**: Splits the `content` directory into logical areas such as `data/` (user data) and `metadata/` (generated data). For details, see **[Object Structure](../05_object_structure_en#content-structure-data--metadata-and-nnnn-content-subpath)**.
 
 ### B. Metadata Extensions
 These extensions automatically enrich the object with technical or administrative metadata during the ingest process.
@@ -37,4 +37,4 @@ These extensions serve to make the content of the object more quickly graspable 
 
 ---
 
-[Back to Object Structure](05_object_structure_en) | [Back to Table of Contents](toc_en)
+[Back to Object Structure](../05_object_structure_en) | [Back to Table of Contents](../toc_en)

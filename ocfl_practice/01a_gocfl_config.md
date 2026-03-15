@@ -1,10 +1,10 @@
 ---
 ---
-[English](01a_gocfl_config_en)
+[English](../01a_gocfl_config_en)
 
 # Überblick über die gocfl.toml Konfigurationsdatei
 
-Die Konfigurationsdatei [gocfl.toml](gocfl.toml) ist das zentrale Element für die Steuerung komplexer Abläufe in `gocfl`. Sie erlaubt es, Standardwerte für Befehle festzulegen und die weitreichenden Funktionen der Submodule zu konfigurieren.
+Die Konfigurationsdatei [gocfl.toml](../gocfl.toml) ist das zentrale Element für die Steuerung komplexer Abläufe in `gocfl`. Sie erlaubt es, Standardwerte für Befehle festzulegen und die weitreichenden Funktionen der Submodule zu konfigurieren.
 
 Hier ist ein Überblick über die wichtigsten Abschnitte der Datei:
 
@@ -48,4 +48,4 @@ Konfiguration für spezifische OCFL-Erweiterungen, wie z.B. die Integration von 
 
 ---
 
-[Zurück zur Verwendung von gocfl](01_gocfl_usage) | [Zurück zum Inhaltsverzeichnis](TOC) | [Nächstes Thema: Initialisierung einer Storage Root](02_storage_root)
+[Zurück zur Verwendung von gocfl](../01_gocfl_usage) | [Zurück zum Inhaltsverzeichnis](../TOC) | [Nächstes Thema: Initialisierung einer Storage Root](../02_storage_root)

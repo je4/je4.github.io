@@ -1,10 +1,10 @@
 ---
 ---
-[English](01_gocfl_usage_en)
+[English](../01_gocfl_usage_en)
 
 # Verwendung und Konfiguration von gocfl
 
-In diesem Teil des Workshops machen wir uns mit der grundlegenden Bedienung und den Konfigurationsmöglichkeiten des Werkzeugs `gocfl` vertraut. Wir setzen voraus, dass die [Installation](00_installation) erfolgreich abgeschlossen wurde.
+In diesem Teil des Workshops machen wir uns mit der grundlegenden Bedienung und den Konfigurationsmöglichkeiten des Werkzeugs `gocfl` vertraut. Wir setzen voraus, dass die [Installation](../00_installation) erfolgreich abgeschlossen wurde.
 
 ## 1. Grundlegende Befehlsstruktur
 
@@ -53,7 +53,7 @@ Beispiele für solche Submodule sind:
 - **Formatmigration:** Module zur automatisierten Umwandlung von Dateiformaten innerhalb des Objekts.
 - **Thumbnail-Generierung:** Erstellung von Vorschaubildern für archivierte Inhalte.
 
-Einen detaillierten Überblick über die einzelnen Abschnitte und Möglichkeiten der Konfigurationsdatei finden Sie auf der Seite **[Detaillierte Konfiguration (gocfl.toml)](01a_gocfl_config)**.
+Einen detaillierten Überblick über die einzelnen Abschnitte und Möglichkeiten der Konfigurationsdatei finden Sie auf der Seite **[Detaillierte Konfiguration (gocfl.toml)](../01a_gocfl_config)**.
 
 Wenn kein Pfad angegeben wird, nutzt `gocfl` interne Standardwerte (Embedded Config).
 
@@ -73,4 +73,4 @@ gocfl --version
 
 ---
 
-[Zurück zur Installation](00_installation) | [Zurück zum Inhaltsverzeichnis](TOC) | [Nächstes Thema: Initialisierung einer Storage Root](02_storage_root)
+[Zurück zur Installation](../00_installation) | [Zurück zum Inhaltsverzeichnis](../TOC) | [Nächstes Thema: Initialisierung einer Storage Root](../02_storage_root)

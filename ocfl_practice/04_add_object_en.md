@@ -1,6 +1,6 @@
 ---
 ---
-[Deutsch](04_add_object)
+[Deutsch](../04_add_object)
 
 # Creating and Adding Objects
 
@@ -40,4 +40,4 @@ gocfl --log-level DEBUG --config ./gocfl/config/gocfl.toml add ./gocfl/temp/test
 
 ---
 
-[Back to OCFL Extensions](03_extensions_en) | [Back to Table of Contents](toc_en) | [Next Topic: Object Structure](05_object_structure_en)
+[Back to OCFL Extensions](../03_extensions_en) | [Back to Table of Contents](../toc_en) | [Next Topic: Object Structure](../05_object_structure_en)

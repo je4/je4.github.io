@@ -1,6 +1,6 @@
 ---
 ---
-[English](03b_extension_list_en)
+[English](../03b_extension_list_en)
 
 # Liste der verwendeten OCFL Extensions
 
@@ -19,8 +19,8 @@ Diese Erweiterungen sind innerhalb der einzelnen OCFL-Objekte aktiv. Wir unterte
 ### A. Pfad- und Layout-Erweiterungen
 Diese Erweiterungen bestimmen, wie Dateien innerhalb des Objekts physisch abgelegt und benannt werden.
 
-- **`0011-direct-clean-path-layout`**: Bereinigt Dateinamen für maximale Systemkompatibilität (z.B. Ersetzung von Leerzeichen durch `=u0020`). Details siehe **[Objektstruktur](05_object_structure#dateinamen-bereinigung-0011-direct-clean-path-layout)**.
-- **`NNNN-content-subpath`**: Teilt das `content`-Verzeichnis in logische Bereiche wie `data/` (Nutzdaten) und `metadata/` (generierte Daten) auf. Details siehe **[Objektstruktur](05_object_structure#content-struktur-data--metadata-und-nnnn-content-subpath)**.
+- **`0011-direct-clean-path-layout`**: Bereinigt Dateinamen für maximale Systemkompatibilität (z.B. Ersetzung von Leerzeichen durch `=u0020`). Details siehe **[Objektstruktur](../05_object_structure#dateinamen-bereinigung-0011-direct-clean-path-layout)**.
+- **`NNNN-content-subpath`**: Teilt das `content`-Verzeichnis in logische Bereiche wie `data/` (Nutzdaten) und `metadata/` (generierte Daten) auf. Details siehe **[Objektstruktur](../05_object_structure#content-struktur-data--metadata-und-nnnn-content-subpath)**.
 
 ### B. Metadaten-Erweiterungen
 Diese Erweiterungen reichern das Objekt während des Ingest-Prozesses automatisch mit technischen oder administrativen Metadaten an.
@@ -37,4 +37,4 @@ Diese Erweiterungen dienen dazu, den Inhalt des Objekts für menschliche Nutzer 
 
 ---
 
-[Zurück zur Objektstruktur](05_object_structure) | [Zurück zum Inhaltsverzeichnis](toc)
+[Zurück zur Objektstruktur](../05_object_structure) | [Zurück zum Inhaltsverzeichnis](../toc)
