@@ -85,4 +85,4 @@ Das bedeutet, ein Objekt wird standardmäßig in einer Struktur wie `[hash1-3]/[
 
 ---
 
-[Zurück zu OCFL Extensions](../03_extensions) | [Zurück zum Inhaltsverzeichnis](../TOC)
+[Zurück zu OCFL Extensions](../03_extensions) | [Zurück zum Inhaltsverzeichnis](../toc)

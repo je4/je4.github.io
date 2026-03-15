@@ -65,4 +65,4 @@ Address="mailto:ocfl.user@unibas.ch"
 
 ---
 
-[Zurück zu OCFL Extensions](../03_extensions) | [Zurück zum Inhaltsverzeichnis](../TOC) | [Nächstes Thema: Objektstruktur](../05_object_structure)
+[Zurück zu OCFL Extensions](../03_extensions) | [Zurück zum Inhaltsverzeichnis](../toc) | [Nächstes Thema: Objektstruktur](../05_object_structure)

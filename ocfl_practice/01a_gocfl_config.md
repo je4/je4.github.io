@@ -48,4 +48,4 @@ Konfiguration für spezifische OCFL-Erweiterungen, wie z.B. die Integration von 
 
 ---
 
-[Zurück zur Verwendung von gocfl](../01_gocfl_usage) | [Zurück zum Inhaltsverzeichnis](../TOC) | [Nächstes Thema: Initialisierung einer Storage Root](../02_storage_root)
+[Zurück zur Verwendung von gocfl](../01_gocfl_usage) | [Zurück zum Inhaltsverzeichnis](../toc) | [Nächstes Thema: Initialisierung einer Storage Root](../02_storage_root)

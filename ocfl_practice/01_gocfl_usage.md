@@ -73,4 +73,4 @@ gocfl --version
 
 ---
 
-[Zurück zur Installation](../00_installation) | [Zurück zum Inhaltsverzeichnis](../TOC) | [Nächstes Thema: Initialisierung einer Storage Root](../02_storage_root)
+[Zurück zur Installation](../00_installation) | [Zurück zum Inhaltsverzeichnis](../toc) | [Nächstes Thema: Initialisierung einer Storage Root](../02_storage_root)

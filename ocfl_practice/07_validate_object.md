@@ -89,4 +89,4 @@ no errors found
 
 ---
 
-[Zurück zum Aktualisieren eines Objektes](../06_update_object) | [Zurück zum Inhaltsverzeichnis](../TOC) | [Weiter zur Anzeige (display)](../08_display_object)
+[Zurück zum Aktualisieren eines Objektes](../06_update_object) | [Zurück zum Inhaltsverzeichnis](../toc) | [Weiter zur Anzeige (display)](../08_display_object)
