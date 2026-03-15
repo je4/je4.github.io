@@ -1,6 +1,6 @@
 ---
 ---
-[English](02_storage_root_en.md)
+[English](02_storage_root_en)
 
 # Initialisierung einer OCFL Storage Root
 

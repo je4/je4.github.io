@@ -1,6 +1,6 @@
 ---
 ---
-[English](03_extensions_en.md)
+[English](03_extensions_en)
 
 # OCFL Extensions (Erweiterungen)
 
@@ -25,11 +25,11 @@ Erweiterungen befinden sich sowohl in der Storage Root als auch in den einzelnen
 Wie wir bei der Initialisierung der Storage Root gesehen haben, legt `gocfl` automatisch Konfigurationsverzeichnisse an. Eine detaillierte Übersicht über die in diesem Workshop verwendeten Erweiterungen finden Sie hier:
 
 - **[OCFL Storage Root Extensions (initial, manager, layout)](03a_storage_root_extensions)**
-- **[Detaillierte Liste aller verwendeten Extensions](03b_extension_list.md)**
+- **[Detaillierte Liste aller verwendeten Extensions](03b_extension_list)**
 
-## 4. Aufrufpunkte (Hooks.md) in gocfl
+## 4. Aufrufpunkte (Hooks) in gocfl
 
-Die Implementierung von Erweiterungen in `gocfl` basiert auf verschiedenen Aufrufpunkten (Hooks.md), an denen die Logik der Erweiterung in den OCFL-Workflow eingreift. Sollte ein Interface mehrere Hooks besitzen, so muss eine Extension, die es verwendet, sämtliche darin definierten Hooks implementieren.
+Die Implementierung von Erweiterungen in `gocfl` basiert auf verschiedenen Aufrufpunkten (Hooks), an denen die Logik der Erweiterung in den OCFL-Workflow eingreift. Sollte ein Interface mehrere Hooks besitzen, so muss eine Extension, die es verwendet, sämtliche darin definierten Hooks implementieren.
 
 Diese unterscheiden sich je nach Kontext:
 
@@ -41,7 +41,7 @@ Diese unterscheiden sich je nach Kontext:
     - **Interface `ExtensionObjectStatePath`**:
         - `BuildObjectStatePath`: Steuert die Pfadbildung im Objekt-State.
     - **Interface `ExtensionArea`**:
-        - `GetAreaPath`: Liefert den Pfad für einen spezifischen Speicherbereich (Area.md).
+        - `GetAreaPath`: Liefert den Pfad für einen spezifischen Speicherbereich (Area).
     - **Interface `ExtensionStream`**:
         - `StreamObject`: Erlaubt das Mitlesen des Datenstroms.
     - **Interface `ExtensionContentChange`**:
@@ -94,4 +94,4 @@ Dies garantiert, dass auch in Jahrzehnten noch nachvollziehbar ist, welche Regel
 
 ---
 
-[Zurück zum Inhaltsverzeichnis](TOC) | [Nächstes Thema: Erstellung von Objekten](04_add_object.md)
+[Zurück zum Inhaltsverzeichnis](toc) | [Nächstes Thema: Erstellung von Objekten](04_add_object)

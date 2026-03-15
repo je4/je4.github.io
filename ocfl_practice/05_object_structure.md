@@ -1,6 +1,6 @@
 ---
 ---
-[English](05_object_structure_en.md)
+[English](05_object_structure_en)
 
 # Die Verzeichnisstruktur eines OCFL-Objekts
 
@@ -8,7 +8,7 @@ Nachdem ein Objekt mit dem `add`-Befehl hinzugefügt wurde, wird es gemäß dem 
 
 `C:\temp\audsworkshop\temp\test42\1f7\d28\1ac\1f7d281accf403621871ec793c3b1c40eb480165e17b80da924aba0280246d12`
 
-## 1. Übersicht der Struktur (Tree.md)
+## 1. Übersicht der Struktur (Tree)
 
 Hier ist die tatsächliche Verzeichnisstruktur des OCFL-Objekts (v1.1) nach dem ersten Ingest (`v1`) in unserem Workshop-Szenario:
 
@@ -87,7 +87,7 @@ Hier ist die tatsächliche Verzeichnisstruktur des OCFL-Objekts (v1.1) nach dem 
                         00006.png
 ```
 
-Eine detaillierte Darstellung der Struktur nach einem Update (v2.md) finden Sie im Kapitel **[Aktualisieren eines Objektes](06_update_object.md#3-struktur-nach-dem-update)**.
+Eine detaillierte Darstellung der Struktur nach einem Update (v2) finden Sie im Kapitel **[Aktualisieren eines Objektes](06_update_object#3-struktur-nach-dem-update)**.
 
 ## 2. Erläuterung der Komponenten
 
@@ -96,9 +96,9 @@ Eine detaillierte Darstellung der Struktur nach einem Update (v2.md) finden Sie 
 Diese Erweiterungen bestimmen, wie die Dateien physisch in der Storage Root und innerhalb des Objekts abgelegt werden.
 
 #### Die Objekt-ID und das Layout (Storage Root)
-Der lange Verzeichnisname `1f7d281acc...` ist das Ergebnis der Hashing-Strategie der Erweiterung `0004-hashed-n-tuple-storage-layout`. In unserem Fall wurde die Objekt-ID `urn:nbn:de:gbv:42-test1` gehasht (SHA-256.md), was den Wert `1f7d281accf403621871ec793c3b1c40eb480165e17b80da924aba0280246d12` ergab. Gemäß den Standardeinstellungen (`tupleSize: 3`, `numberTuples: 3`) wurde der Pfad `1f7/d28/1ac/` vorangestellt.
+Der lange Verzeichnisname `1f7d281acc...` ist das Ergebnis der Hashing-Strategie der Erweiterung `0004-hashed-n-tuple-storage-layout`. In unserem Fall wurde die Objekt-ID `urn:nbn:de:gbv:42-test1` gehasht (SHA-256), was den Wert `1f7d281accf403621871ec793c3b1c40eb480165e17b80da924aba0280246d12` ergab. Gemäß den Standardeinstellungen (`tupleSize: 3`, `numberTuples: 3`) wurde der Pfad `1f7/d28/1ac/` vorangestellt.
 
-#### Dateinamen-Bereinigung (0011-direct-clean-path-layout.md)
+#### Dateinamen-Bereinigung (0011-direct-clean-path-layout)
 
 Innerhalb des Objekts (unter `v1/content/data/`) werden die Dateinamen durch die Erweiterung **[0011-direct-clean-path-layout](https://ocfl.github.io/extensions/0011-direct-clean-path-layout.html)** bereinigt, um die Kompatibilität mit verschiedenen Dateisystemen sicherzustellen.
 
@@ -117,9 +117,9 @@ Hierbei steht `=u0020` für das Leerzeichen (U+0020). Diese Ersetzung erfolgt au
 
 Ein wesentlicher Unterschied zu einer Standard-OCFL-Struktur ist die Aufteilung innerhalb der Versionsverzeichnisse (z. B. `v1/content/`). Diese wird durch die Erweiterung **`NNNN-content-subpath`** gesteuert.
 
-Die Erweiterung ermöglicht es, verschiedene logische Bereiche (Areas.md) zu definieren, die auf physische Unterverzeichnisse im `content`-Ordner gemappt werden:
+Die Erweiterung ermöglicht es, verschiedene logische Bereiche (Areas) zu definieren, die auf physische Unterverzeichnisse im `content`-Ordner gemappt werden:
 
-- **`data/` (Area: `content`)**: Dies ist der Standardbereich für die eigentlichen Nutzdaten (Payload.md). Gemäß der Konfiguration von `gocfl` wird der logische Bereich `content` physisch im Ordner `data/` abgelegt. Hier findet auch das **URL-Encoding** von Sonderzeichen statt, um die Dateisystem-Kompatibilität zu erhöhen.
+- **`data/` (Area: `content`)**: Dies ist der Standardbereich für die eigentlichen Nutzdaten (Payload). Gemäß der Konfiguration von `gocfl` wird der logische Bereich `content` physisch im Ordner `data/` abgelegt. Hier findet auch das **URL-Encoding** von Sonderzeichen statt, um die Dateisystem-Kompatibilität zu erhöhen.
 - **`metadata/` (Area: `metadata`)**: In diesem Bereich legen andere Erweiterungen ihre generierten Dateien ab. In unserem Workshop-Beispiel ist dieser Bereich auf den Ordner `metadata/` gemappt.
 - **`README.md`**: Die Erweiterung `NNNN-content-subpath` erstellt automatisch eine `README.md` direkt im `content`-Verzeichnis jeder Version, welche die Bedeutung der Unterordner für menschliche Betrachter erklärt.
 
@@ -138,8 +138,8 @@ Diese Gruppe dient dem schnellen Überblick über den Inhalt:
 - **`thumbnails/`**: Die Erweiterung `NNNN-thumbnail` hat für unterstützte Dateitypen (Bilder, Videos, PDFs) automatisch Vorschaubilder generiert. Diese liegen im Unterordner `metadata/thumbnails/v1/` und sind in der entsprechenden Index-Datei (`thumbnail_v1.jsonl.gz`) verzeichnet.
 
 ## 3. Extensions im Objekt
-Wie die Storage Root besitzt auch jedes Objekt ein `extensions/`-Verzeichnis. Hier speichert `gocfl` die Konfigurationen für alle aktiven Erweiterungen. Eine vollständige Liste aller Extensions finden Sie unter **[Liste der OCFL Extensions](03b_extension_list.md)**.
+Wie die Storage Root besitzt auch jedes Objekt ein `extensions/`-Verzeichnis. Hier speichert `gocfl` die Konfigurationen für alle aktiven Erweiterungen. Eine vollständige Liste aller Extensions finden Sie unter **[Liste der OCFL Extensions](03b_extension_list)**.
 
 ---
 
-[Zurück zum Hinzufügen von Objekten](04_add_object.md) | [Zurück zum Inhaltsverzeichnis](TOC) | [Nächstes Thema: Objekt aktualisieren](06_update_object.md)
+[Zurück zum Hinzufügen von Objekten](04_add_object) | [Zurück zum Inhaltsverzeichnis](TOC) | [Nächstes Thema: Objekt aktualisieren](06_update_object)

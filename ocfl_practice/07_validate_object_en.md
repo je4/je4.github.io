@@ -1,10 +1,10 @@
 ---
 ---
-[Deutsch](07_validate_object.md)
+[Deutsch](07_validate_object)
 
 # Validation (validate)
 
-A crucial advantage of OCFL is integrity assurance. With `gocfl`, it is possible to verify at any time whether a storage root or an individual object still complies with the specification and whether all checksums (digests.md) are correct.
+A crucial advantage of OCFL is integrity assurance. With `gocfl`, it is possible to verify at any time whether a storage root or an individual object still complies with the specification and whether all checksums (digests) are correct.
 
 ## 1. The `validate` Command
 
@@ -41,7 +41,7 @@ During validation, `gocfl` performs the following steps:
 
 If a storage root contains many objects, validation can be time-consuming. `gocfl` offers flags to narrow down the check:
 
-- **Only a specific object (ID.md):**
+- **Only a specific object (ID):**
   ```bash
   gocfl validate ./gocfl/temp/test42/ --object-id urn:nbn:de:gbv:42-test1
   ```
@@ -80,7 +80,7 @@ no errors found
     *   According to the OCFL specification, extensions **should** be registered, but it is **allowed** to use custom or community extensions.
     *   A warning does **not** mean the object is invalid.
 
-2.  **Errors (E-Codes.md):**
+2.  **Errors (E-Codes):**
     *   Errors (e.g., `E001`, `E066`) would indicate a violation of the OCFL core specification (MUST requirements).
     *   An object with errors is considered **invalid** and must be repaired (e.g., in case of checksum errors).
 
@@ -89,4 +89,4 @@ no errors found
 
 ---
 
-[Back to Updating an Object](06_update_object_en.md) | [Back to Table of Contents](toc_en.md) | [Next to Display (display)](08_display_object_en.md)
+[Back to Updating an Object](06_update_object_en) | [Back to Table of Contents](toc_en) | [Next to Display (display)](08_display_object_en)

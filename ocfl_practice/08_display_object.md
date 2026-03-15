@@ -1,6 +1,6 @@
 ---
 ---
-[English](08_display_object_en.md)
+[English](08_display_object_en)
 
 # Anzeige im Webbrowser (display)
 
@@ -33,7 +33,7 @@ Sobald der Server läuft und Sie die Adresse im Browser aufrufen, bietet der `go
 
 1.  **Objekt-Liste:** Übersicht über alle Objekte in der Storage Root (mit ID und Pfad).
 2.  **Versions-Historie:** Auswahl zwischen den verschiedenen Versionen eines Objekts (z.B. `v1` und `v2`).
-3.  **Datei-Browser:** Browsen durch die logische Verzeichnisstruktur (State.md) der gewählten Version.
+3.  **Datei-Browser:** Browsen durch die logische Verzeichnisstruktur (State) der gewählten Version.
 4.  **Metadaten-Anzeige:** Direkte Anzeige von technischen Metadaten (falls durch Extensions wie `NNNN-indexer` generiert).
 5.  **Vorschau:** Anzeige von Bildern oder Abspielen von Audio/Video-Dateien direkt im Browser (unterstützt durch die `NNNN-thumbnail` Extension).
 6.  **Fixity-Informationen:** Anzeige der Prüfsummen für jede Datei.
@@ -51,4 +51,4 @@ Da der Befehl den Terminal-Prozess blockiert, während der Server läuft, kann d
 
 ---
 
-[Zurück zur Validierung](07_validate_object.md) | [Zurück zum Inhaltsverzeichnis](TOC)
+[Zurück zur Validierung](07_validate_object) | [Zurück zum Inhaltsverzeichnis](TOC)

@@ -1,6 +1,6 @@
 ---
 ---
-[Deutsch](03b_extension_list.md)
+[Deutsch](03b_extension_list)
 
 # List of Used OCFL Extensions
 
@@ -19,8 +19,8 @@ These extensions are active within the individual OCFL objects. We divide them h
 ### A. Path and Layout Extensions
 These extensions determine how files are physically stored and named within the object.
 
-- **`0011-direct-clean-path-layout`**: Cleans up filenames for maximum system compatibility (e.g., replacing spaces with `=u0020`). For details, see **[Object Structure](05_object_structure_en.md#filename-cleanup-0011-direct-clean-path-layout)**.
-- **`NNNN-content-subpath`**: Splits the `content` directory into logical areas such as `data/` (user data) and `metadata/` (generated data). For details, see **[Object Structure](05_object_structure_en.md#content-structure-data--metadata-and-nnnn-content-subpath)**.
+- **`0011-direct-clean-path-layout`**: Cleans up filenames for maximum system compatibility (e.g., replacing spaces with `=u0020`). For details, see **[Object Structure](05_object_structure_en#filename-cleanup-0011-direct-clean-path-layout)**.
+- **`NNNN-content-subpath`**: Splits the `content` directory into logical areas such as `data/` (user data) and `metadata/` (generated data). For details, see **[Object Structure](05_object_structure_en#content-structure-data--metadata-and-nnnn-content-subpath)**.
 
 ### B. Metadata Extensions
 These extensions automatically enrich the object with technical or administrative metadata during the ingest process.
@@ -28,7 +28,7 @@ These extensions automatically enrich the object with technical or administrativ
 - **`NNNN-indexer`**: Extracts technical metadata (format, duration, resolution, etc.) using tools like Siegfried and FFMPEG and stores it in `indexer_v1.jsonl.gz`.
 - **`NNNN-filesystem`**: Backs up metadata of the original filesystem (timestamps, permissions) in `filesystem_v1.jsonl.gz`.
 - **`NNNN-metafile`**: Allows including custom metadata (like our `info.json`) when creating the object.
-- **`0001-digest-algorithms`**: Enables the calculation of additional checksums (fixity.md) for long-term integrity.
+- **`0001-digest-algorithms`**: Enables the calculation of additional checksums (fixity) for long-term integrity.
 
 ### C. Extensions for Better Readability and Preview
 These extensions serve to make the content of the object more quickly graspable for human users.
@@ -37,4 +37,4 @@ These extensions serve to make the content of the object more quickly graspable 
 
 ---
 
-[Back to Object Structure](05_object_structure_en.md) | [Back to Table of Contents](toc_en.md)
+[Back to Object Structure](05_object_structure_en) | [Back to Table of Contents](toc_en)

@@ -1,6 +1,6 @@
 ---
 ---
-[Deutsch](05_object_structure.md)
+[Deutsch](05_object_structure)
 
 # The Directory Structure of an OCFL Object
 
@@ -8,7 +8,7 @@ After an object has been added with the `add` command, it is stored in the stora
 
 `C:\temp\audsworkshop\temp\test42\1f7\d28\1ac\1f7d281accf403621871ec793c3b1c40eb480165e17b80da924aba0280246d12`
 
-## 1. Overview of the Structure (Tree.md)
+## 1. Overview of the Structure (Tree)
 
 Here is the actual directory structure of the OCFL object (v1.1) after the first ingest (`v1`) in our workshop scenario:
 
@@ -87,7 +87,7 @@ Here is the actual directory structure of the OCFL object (v1.1) after the first
                         00006.png
 ```
 
-A detailed representation of the structure after an update (v2.md) can be found in the chapter **[Updating an Object](06_update_object_en.md#3-structure-after-the-update)**.
+A detailed representation of the structure after an update (v2) can be found in the chapter **[Updating an Object](06_update_object_en#3-structure-after-the-update)**.
 
 ## 2. Explanation of Components
 
@@ -96,9 +96,9 @@ A detailed representation of the structure after an update (v2.md) can be found 
 These extensions determine how the files are physically stored in the storage root and within the object.
 
 #### The Object ID and the Layout (Storage Root)
-The long directory name `1f7d281acc...` is the result of the hashing strategy of the extension `0004-hashed-n-tuple-storage-layout`. In our case, the object ID `urn:nbn:de:gbv:42-test1` was hashed (SHA-256.md), resulting in the value `1f7d281accf403621871ec793c3b1c40eb480165e17b80da924aba0280246d12`. According to the default settings (`tupleSize: 3`, `numberTuples: 3`), the path `1f7/d28/1ac/` was prefixed.
+The long directory name `1f7d281acc...` is the result of the hashing strategy of the extension `0004-hashed-n-tuple-storage-layout`. In our case, the object ID `urn:nbn:de:gbv:42-test1` was hashed (SHA-256), resulting in the value `1f7d281accf403621871ec793c3b1c40eb480165e17b80da924aba0280246d12`. According to the default settings (`tupleSize: 3`, `numberTuples: 3`), the path `1f7/d28/1ac/` was prefixed.
 
-#### Filename Cleanup (0011-direct-clean-path-layout.md)
+#### Filename Cleanup (0011-direct-clean-path-layout)
 
 Within the object (under `v1/content/data/`), the filenames are cleaned up by the extension **[0011-direct-clean-path-layout](https://ocfl.github.io/extensions/0011-direct-clean-path-layout.html)** to ensure compatibility with different filesystems.
 
@@ -119,7 +119,7 @@ A significant difference from a standard OCFL structure is the division within t
 
 The extension allows defining various logical areas, which are mapped to physical subdirectories in the `content` folder:
 
-- **`data/` (Area: `content`)**: This is the default area for the actual user data (payload.md). According to the configuration of `gocfl`, the logical area `content` is physically stored in the `data/` folder. **URL encoding** of special characters also takes place here to increase filesystem compatibility.
+- **`data/` (Area: `content`)**: This is the default area for the actual user data (payload). According to the configuration of `gocfl`, the logical area `content` is physically stored in the `data/` folder. **URL encoding** of special characters also takes place here to increase filesystem compatibility.
 - **`metadata/` (Area: `metadata`)**: Other extensions store their generated files in this area. In our workshop example, this area is mapped to the `metadata/` folder.
 - **`README.md`**: The `NNNN-content-subpath` extension automatically creates a `README.md` directly in the `content` directory of each version, which explains the meaning of the subfolders to human observers.
 
@@ -138,8 +138,8 @@ This group serves to provide a quick overview of the content:
 - **`thumbnails/`**: The `NNNN-thumbnail` extension has automatically generated small preview images for supported file types (images, videos, PDFs). These are located in the subdirectory `metadata/thumbnails/v1/` and are listed in the corresponding index file (`thumbnail_v1.jsonl.gz`).
 
 ## 3. Extensions in the Object
-Like the storage root, each object also has an `extensions/` directory. Here, `gocfl` stores the configurations for all active extensions. A complete list of all extensions can be found under **[List of OCFL Extensions](03b_extension_list_en.md)**.
+Like the storage root, each object also has an `extensions/` directory. Here, `gocfl` stores the configurations for all active extensions. A complete list of all extensions can be found under **[List of OCFL Extensions](03b_extension_list_en)**.
 
 ---
 
-[Back to Adding Objects](04_add_object_en.md) | [Back to Table of Contents](toc_en.md) | [Next Topic: Updating Objects](06_update_object_en.md)
+[Back to Adding Objects](04_add_object_en) | [Back to Table of Contents](toc_en) | [Next Topic: Updating Objects](06_update_object_en)
