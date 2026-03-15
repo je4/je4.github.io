@@ -1,6 +1,6 @@
 ---
 ---
-[Deutsch](../TOC)
+[Deutsch](../toc)
 
 # Workshop Course (Table of Contents)
 

@@ -88,4 +88,4 @@ test42/
 
 ---
 
-[Zurück zum Inhaltsverzeichnis](../TOC) | [Nächstes Thema: OCFL Extensions (Erweiterungen)](../03_extensions)
+[Zurück zum Inhaltsverzeichnis](../toc) | [Nächstes Thema: OCFL Extensions (Erweiterungen)](../03_extensions)
