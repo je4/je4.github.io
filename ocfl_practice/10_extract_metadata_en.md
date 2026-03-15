@@ -28,6 +28,7 @@ gocfl --log-level DEBUG --config ./gocfl/config/gocfl.toml extractmeta ./gocfl/t
 - `./gocfl/temp/test42`: The path to the storage root.
 - `-i urn:nbn:de:gbv:42-test1`: The ID of the object whose metadata is to be extracted.
 - `--output ./gocfl/temp/meta.json`: Specifies the file path where the metadata will be written.
+- `--obfuscate`: Exports the metadata in an anonymized form. Path and file names are replaced with random UUIDs, while technical metadata such as file sizes, PRONOM IDs, and MIME types are preserved.
 
 ## 2. What is Extracted?
 
@@ -134,13 +135,53 @@ The **`meta.json`** is a **refined export view**. It resolves the references of 
 
 ### Long-term Archiving and Discoverability
 
-It is important to understand: we do not archive the metadata (`meta.json`) as the primary object. The **OCFL object itself** is the unit of long-term preservation. The extracted metadata serves to **find** the object within the archive (e.g., via a database or a search index) and allows for quick access without having to scan the entire OCFL archive every time.
+The **OCFL object** thus contains all the metadata required for the long-term archiving of the object. The `extractmeta` function provides this in a processed format (`meta.json`) that an archive system can easily interpret. This ensures the discoverability of the object within the archive.
 
 This makes it the ideal basis for:
 - Importing into a database.
 - Displaying in a web frontend.
 - Quick searching and identifying objects in the archive.
 - Long-term archiving of technical metadata in an easily readable format as additional information.
+
+## 4. Anonymized Export (Obfuscation)
+
+Using the parameter `--obfuscate`, the metadata can be exported in an anonymized form. This is particularly useful when metadata needs to be shared for analysis or testing purposes without revealing sensitive information such as real file names or path structures.
+
+### What Happens During Obfuscation?
+
+1.  **UUIDs Instead of Hashes/Names:** The unique identifiers (Keys) in the `Files` block, as well as the paths in `InternalName` and `VersionName`, are replaced with random UUIDs.
+2.  **Removal of Clear Names:** All information that allows conclusions to be drawn about the original file structure is obscured.
+3.  **Reduction to Technical Core Data:** Almost all metadata from the extensions is removed. Only the following are preserved:
+    - **File Size** (`size`)
+    - **MIME Type** (`mimetype`)
+    - **PRONOM ID** (`pronom`): Used for **Preservation Management**. This allows for **Format Watching** even with anonymized data.
+4.  **Empty Checksums:** The `Checksums` block is cleared to prevent any conclusions about the original file.
+
+### Example Snippet (Anonymized):
+
+```json
+{
+  "Files": {
+    "14aafd0e-4d07-47c2-91d0-b08d91ed5b53": {
+      "Checksums": {},
+      "InternalName": ["v1/content/c7537293-a62f-43f6-9e3d-e8c27bf0c245"],
+      "VersionName": {
+        "v1": ["c7537293-a62f-43f6-9e3d-e8c27bf0c245"]
+      },
+      "Extension": {
+        "NNNN-indexer": {
+          "mimetype": "application/pdf",
+          "pronom": "fmt/20",
+          "size": 547440,
+          "metadata": {}
+        }
+      }
+    }
+  }
+}
+```
+
+As shown in the example, the technical characteristics of the file (PDF, approx. 547 KB) are preserved for statistical evaluations, while the context (file name, path, hash) has been completely anonymized.
 
 ---
 

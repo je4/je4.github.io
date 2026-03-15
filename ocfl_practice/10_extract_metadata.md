@@ -28,6 +28,7 @@ gocfl --log-level DEBUG --config ./gocfl/config/gocfl.toml extractmeta ./gocfl/t
 - `./gocfl/temp/test42`: Der Pfad zur Storage Root.
 - `-i urn:nbn:de:gbv:42-test1`: Die ID des Objekts, dessen Metadaten extrahiert werden sollen.
 - `--output ./gocfl/temp/meta.json`: Gibt den Dateipfad an, in den die Metadaten geschrieben werden sollen.
+- `--obfuscate`: Exportiert die Metadaten in anonymisierter Form. Dabei werden Pfad- und Dateinamen durch zufällige UUIDs ersetzt, während technische Metadaten wie Dateigrößen, PRONOM-IDs und MIME-Types erhalten bleiben.
 
 ## 2. Was wird extrahiert?
 
@@ -134,13 +135,53 @@ Die **`meta.json`** ist eine **aufbereitete Export-Sicht**. Sie löst die Refere
 
 ### Langzeitarchivierung und Auffindbarkeit
 
-Es ist wichtig zu verstehen: Wir archivieren nicht die Metadaten (`meta.json`) als primäres Objekt. Das **OCFL-Objekt selbst** ist die Einheit der Langzeitarchivierung. Die extrahierten Metadaten dienen dazu, das Objekt im Archiv (z. B. über eine Datenbank oder einen Suchindex) **wiederzufinden** und schnell darauf zugreifen zu können, ohne jedes Mal das gesamte OCFL-Archiv durchsuchen zu müssen.
+Das **OCFL-Objekt** enthält somit sämtliche Metadaten, welche für die Langzeitarchivierung des Objektes benötigt werden. Die Funktion `extractmeta` liefert diese in einer aufbereiteten Form (`meta.json`), die ein Archivsystem einfach interpretieren kann. Dies gewährleistet die Auffindbarkeit des Objektes im Archiv.
 
-Damit ist sie die ideale Grundlage für:
+Dies macht es zur idealen Grundlage für:
 - Den Import in eine Datenbank.
 - Die Anzeige in einem Web-Frontend.
 - Die schnelle Suche und Identifizierung von Objekten im Archiv.
 - Die Langzeitarchivierung von technischen Metadaten in einem einfach lesbaren Format als Zusatzinformation.
+
+## 4. Anonymisierter Export (Obfuscation)
+
+Mit dem Parameter `--obfuscate` lassen sich die Metadaten in anonymisierter Form exportieren. Dies ist besonders nützlich, wenn Metadaten zu Analyse- oder Testzwecken weitergegeben werden sollen, ohne sensible Informationen wie echte Dateinamen oder Pfadstrukturen preiszugeben.
+
+### Was passiert bei der Obfuscation?
+
+1.  **UUIDs statt Hashes/Namen:** Die eindeutigen Identifikatoren (Keys) im `Files`-Block sowie die Pfade in `InternalName` und `VersionName` werden durch zufällige UUIDs ersetzt.
+2.  **Entfernung von Klarnamen:** Alle Informationen, die Rückschlüsse auf die ursprüngliche Dateistruktur zulassen, werden verschleiert.
+3.  **Reduktion auf technische Kerndaten:** Fast alle Metadaten aus den Extensions werden entfernt. Erhalten bleiben lediglich:
+    - **Dateigröße** (`size`)
+    - **MIME-Type** (`mimetype`)
+    - **PRONOM-ID** (`pronom`): Wird für das **Preservation Management** verwendet. Damit bleibt ein **Format Watching** auch bei anonymisierten Daten weiterhin möglich.
+4.  **Leere Prüfsummen:** Der `Checksums`-Block wird geleert, um auch hier keine Rückschlüsse auf die Originaldatei zu ermöglichen.
+
+### Beispiel-Ausschnitt (anonymisiert):
+
+```json
+{
+  "Files": {
+    "14aafd0e-4d07-47c2-91d0-b08d91ed5b53": {
+      "Checksums": {},
+      "InternalName": ["v1/content/c7537293-a62f-43f6-9e3d-e8c27bf0c245"],
+      "VersionName": {
+        "v1": ["c7537293-a62f-43f6-9e3d-e8c27bf0c245"]
+      },
+      "Extension": {
+        "NNNN-indexer": {
+          "mimetype": "application/pdf",
+          "pronom": "fmt/20",
+          "size": 547440,
+          "metadata": {}
+        }
+      }
+    }
+  }
+}
+```
+
+Wie im Beispiel ersichtlich, bleiben die technischen Merkmale der Datei (PDF, ca. 547 KB) für statistische Auswertungen erhalten, während der Kontext (Dateiname, Pfad, Hash) vollständig anonymisiert wurde.
 
 ---
 
