@@ -24,12 +24,12 @@ Extensions are located in both the storage root and the individual OCFL objects 
 
 As we saw during the initialization of the storage root, `gocfl` automatically creates configuration directories. A detailed overview of the extensions used in this workshop can be found here:
 
-- **[OCFL Storage Root Extensions (initial, manager, layout)](03a_storage_root_extensions_en)**
-- **[Detailed List of All Used Extensions](03b_extension_list_en)**
+- **[OCFL Storage Root Extensions (initial, manager, layout)](03a_storage_root_extensions_en.md)**
+- **[Detailed List of All Used Extensions](03b_extension_list_en.md)**
 
 ## 4. Hooks in gocfl
 
-The implementation of extensions in `gocfl` is based on various call points (hooks) where the logic of the extension intervenes in the OCFL workflow. If an interface has multiple hooks, an extension using it must implement all the hooks defined therein.
+The implementation of extensions in `gocfl` is based on various call points (hooks.md) where the logic of the extension intervenes in the OCFL workflow. If an interface has multiple hooks, an extension using it must implement all the hooks defined therein.
 
 These differ depending on the context:
 
@@ -94,4 +94,4 @@ This guarantees that even in decades, it will still be possible to understand wh
 
 ---
 
-[Back to Table of Contents](toc_en) | [Next Topic: Creating Objects](04_add_object_en)
+[Back to Table of Contents](toc_en.md) | [Next Topic: Creating Objects](04_add_object_en.md)

@@ -1,6 +1,6 @@
 ---
 ---
-[English](03a_storage_root_extensions_en)
+[English](03a_storage_root_extensions_en.md)
 
 # OCFL Storage Root Extensions
 
@@ -61,7 +61,7 @@ Inhalt der `config.json`:
    "extensionName": "0004-hashed-n-tuple-storage-layout"
 }
 ```
-Diese Datei steuert (zusammen mit den Angaben in `ocfl_layout.json`), wie tief die Verzeichnisstruktur geschachtelt wird und welcher Hash-Algorithmus für die Pfadbildung genutzt wird. In der Minimalversion reicht hier oft der Name der Extension aus, da die Spezifikation Standardwerte (Defaults) vorsieht.
+Diese Datei steuert (zusammen mit den Angaben in `ocfl_layout.json`), wie tief die Verzeichnisstruktur geschachtelt wird und welcher Hash-Algorithmus für die Pfadbildung genutzt wird. In der Minimalversion reicht hier oft der Name der Extension aus, da die Spezifikation Standardwerte (Defaults.md) vorsieht.
 
 #### Standardwerte der Extension 0004:
 Wenn diese Parameter nicht in der `config.json` definiert sind, gelten folgende Defaults gemäß Spezifikation:
@@ -73,4 +73,4 @@ Das bedeutet, ein Objekt wird standardmäßig in einer Struktur wie `[hash1-3]/[
 
 ---
 
-[Zurück zu OCFL Extensions](03_extensions) | [Zurück zum Inhaltsverzeichnis](toc)
+[Zurück zu OCFL Extensions](03_extensions) | [Zurück zum Inhaltsverzeichnis](TOC)

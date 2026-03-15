@@ -1,6 +1,6 @@
 ---
 ---
-[English](01a_gocfl_config_en)
+[English](01a_gocfl_config_en.md)
 
 # Überblick über die gocfl.toml Konfigurationsdatei
 
@@ -12,8 +12,8 @@ Hier ist ein Überblick über die wichtigsten Abschnitte der Datei:
 
 - **[S3]:** Konfiguration für die Arbeit mit S3-kompatiblem Objektspeicher (Endpoints, Access Keys, Regionen). Diese können auch über Umgebungsvariablen wie `%%GOCFL_S3_ENDPOINT%%` gesteuert werden.
 - **[log]:** Steuerung des Detailgrads der Ausgaben (`trace`, `debug`, `info`, etc.).
-- **[log.stash]:** Ermöglicht das Senden von Logs an einen Logstash-Server (ELK-Stack).
-- **[AES]:** Integration von KeePass (KDBX-Dateien) zur sicheren Verwaltung von Schlüsseln und Passwörtern.
+- **[log.stash]:** Ermöglicht das Senden von Logs an einen Logstash-Server (ELK-Stack.md).
+- **[AES]:** Integration von KeePass (KDBX-Dateien.md) zur sicheren Verwaltung von Schlüsseln und Passwörtern.
 
 ## 2. Befehls-Standardwerte
 
@@ -48,4 +48,4 @@ Konfiguration für spezifische OCFL-Erweiterungen, wie z.B. die Integration von 
 
 ---
 
-[Zurück zur Verwendung von gocfl](01_gocfl_usage) | [Zurück zum Inhaltsverzeichnis](toc) | [Nächstes Thema: Initialisierung einer Storage Root](02_storage_root)
+[Zurück zur Verwendung von gocfl](01_gocfl_usage.md) | [Zurück zum Inhaltsverzeichnis](TOC) | [Nächstes Thema: Initialisierung einer Storage Root](02_storage_root.md)

@@ -1,10 +1,10 @@
 ---
 ---
-[Deutsch](01_gocfl_usage)
+[Deutsch](01_gocfl_usage.md)
 
 # Usage and Configuration of gocfl
 
-In this part of the workshop, we will familiarize ourselves with the basic operation and configuration options of the `gocfl` tool. We assume that the [installation](00_installation_en) has been successfully completed.
+In this part of the workshop, we will familiarize ourselves with the basic operation and configuration options of the `gocfl` tool. We assume that the [installation](00_installation_en.md) has been successfully completed.
 
 ## 1. Basic Command Structure
 
@@ -53,13 +53,13 @@ Examples of such submodules are:
 - **Format Migration:** Modules for automated conversion of file formats within the object.
 - **Thumbnail Generation:** Creation of preview images for archived content.
 
-For a detailed overview of the individual sections and possibilities of the configuration file, see the page **[Detailed Configuration (gocfl.toml)](01a_gocfl_config_en)**.
+For a detailed overview of the individual sections and possibilities of the configuration file, see the page **[Detailed Configuration (gocfl.toml)](01a_gocfl_config_en.md)**.
 
 If no path is specified, `gocfl` uses internal default values (embedded config).
 
 ### Precedence of Settings
 If settings are defined in multiple places, the following priority applies:
-1. **Command-line parameters (Flags):** Always take precedence.
+1. **Command-line parameters (Flags.md):** Always take precedence.
 2. **Environment variables:** Override values from the configuration file (e.g., `GOCFL_S3_ENDPOINT`).
 3. **Configuration file:** Defines project- or user-specific standards.
 4. **Default values:** Hard-coded fallbacks in the program code (e.g., SHA-512 as the standard hash).
@@ -73,4 +73,4 @@ gocfl --version
 
 ---
 
-[Back to Installation](00_installation_en) | [Back to Table of Contents](toc_en) | [Next Topic: Initializing a Storage Root](02_storage_root_en)
+[Back to Installation](00_installation_en.md) | [Back to Table of Contents](toc_en.md) | [Next Topic: Initializing a Storage Root](02_storage_root_en.md)

@@ -1,6 +1,6 @@
 ---
 ---
-[English](02_storage_root_en)
+[English](02_storage_root_en.md)
 
 # Initialisierung einer OCFL Storage Root
 
@@ -86,4 +86,4 @@ test42/
 
 ---
 
-[Zurück zum Inhaltsverzeichnis](toc) | [Nächstes Thema: OCFL Extensions (Erweiterungen)](03_extensions)
+[Zurück zum Inhaltsverzeichnis](TOC) | [Nächstes Thema: OCFL Extensions (Erweiterungen)](03_extensions)

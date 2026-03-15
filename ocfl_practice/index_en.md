@@ -1,6 +1,8 @@
 ---
 ---
-[Deutsch](index)
+[Deutsch](index.md)
+
+[Back to Home](../index_en.md)
 
 # OCFL Standard in Practice
 
@@ -42,7 +44,7 @@ In this workshop, the tool **[gocfl](https://github.com/ocfl-archive/gocfl/)** i
 
 ### Workshop Navigation
 
-An overview of the planned workshop course can be found in the **[Table of Contents (TOC)](toc_en)**.
+An overview of the planned workshop course can be found in the **[Table of Contents (TOC)](toc_en.md)**.
 
 ### Further Information
 Further details on the standard and specification can be found on the official website:

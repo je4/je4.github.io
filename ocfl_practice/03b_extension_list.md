@@ -1,6 +1,6 @@
 ---
 ---
-[English](03b_extension_list_en)
+[English](03b_extension_list_en.md)
 
 # Liste der verwendeten OCFL Extensions
 
@@ -20,7 +20,7 @@ Diese Erweiterungen sind innerhalb der einzelnen OCFL-Objekte aktiv. Wir unterte
 Diese Erweiterungen bestimmen, wie Dateien innerhalb des Objekts physisch abgelegt und benannt werden.
 
 - **`0011-direct-clean-path-layout`**: Bereinigt Dateinamen für maximale Systemkompatibilität (z.B. Ersetzung von Leerzeichen durch `=u0020`). Details siehe **[Objektstruktur](05_object_structure.md#dateinamen-bereinigung-0011-direct-clean-path-layout)**.
-- **`NNNN-content-subpath`**: Teilt das `content`-Verzeichnis in logische Bereiche wie `data/` (Nutzdaten) und `metadata/` (generierte Daten) auf. Details siehe **[Objektstruktur](05_object_structure.md#content-struktur-data--metadata-und-nnnn-content-subpath)**.
+- **`NNNN-content-subpath`**: Teilt das `content`-Verzeichnis in logische Bereiche wie `data/` (Nutzdaten.md) und `metadata/` (generierte Daten) auf. Details siehe **[Objektstruktur](05_object_structure.md#content-struktur-data--metadata-und-nnnn-content-subpath)**.
 
 ### B. Metadaten-Erweiterungen
 Diese Erweiterungen reichern das Objekt während des Ingest-Prozesses automatisch mit technischen oder administrativen Metadaten an.
@@ -28,7 +28,7 @@ Diese Erweiterungen reichern das Objekt während des Ingest-Prozesses automatisc
 - **`NNNN-indexer`**: Extrahiert technische Metadaten (Format, Dauer, Auflösung etc.) mittels Tools wie Siegfried und FFMPEG und speichert sie in `indexer_v1.jsonl.gz`.
 - **`NNNN-filesystem`**: Sichert Metadaten des ursprünglichen Dateisystems (Zeitstempel, Rechte) in `filesystem_v1.jsonl.gz`.
 - **`NNNN-metafile`**: Erlaubt das Einbinden benutzerdefinierter Metadaten (wie unsere `info.json`) beim Erstellen des Objekts.
-- **`0001-digest-algorithms`**: Ermöglicht die Berechnung zusätzlicher Prüfsummen (Fixity) für die langfristige Integrität.
+- **`0001-digest-algorithms`**: Ermöglicht die Berechnung zusätzlicher Prüfsummen (Fixity.md) für die langfristige Integrität.
 
 ### C. Erweiterungen für bessere Lesbarkeit und Vorschau
 Diese Erweiterungen dienen dazu, den Inhalt des Objekts für menschliche Nutzer schneller erfassbar zu machen.
@@ -37,4 +37,4 @@ Diese Erweiterungen dienen dazu, den Inhalt des Objekts für menschliche Nutzer 
 
 ---
 
-[Zurück zur Objektstruktur](05_object_structure) | [Zurück zum Inhaltsverzeichnis](toc)
+[Zurück zur Objektstruktur](05_object_structure.md) | [Zurück zum Inhaltsverzeichnis](TOC)

@@ -1,10 +1,10 @@
 ---
 ---
-[English](01_gocfl_usage_en)
+[English](01_gocfl_usage_en.md)
 
 # Verwendung und Konfiguration von gocfl
 
-In diesem Teil des Workshops machen wir uns mit der grundlegenden Bedienung und den Konfigurationsmöglichkeiten des Werkzeugs `gocfl` vertraut. Wir setzen voraus, dass die [Installation](00_installation) erfolgreich abgeschlossen wurde.
+In diesem Teil des Workshops machen wir uns mit der grundlegenden Bedienung und den Konfigurationsmöglichkeiten des Werkzeugs `gocfl` vertraut. Wir setzen voraus, dass die [Installation](00_installation.md) erfolgreich abgeschlossen wurde.
 
 ## 1. Grundlegende Befehlsstruktur
 
@@ -53,13 +53,13 @@ Beispiele für solche Submodule sind:
 - **Formatmigration:** Module zur automatisierten Umwandlung von Dateiformaten innerhalb des Objekts.
 - **Thumbnail-Generierung:** Erstellung von Vorschaubildern für archivierte Inhalte.
 
-Einen detaillierten Überblick über die einzelnen Abschnitte und Möglichkeiten der Konfigurationsdatei finden Sie auf der Seite **[Detaillierte Konfiguration (gocfl.toml)](01a_gocfl_config)**.
+Einen detaillierten Überblick über die einzelnen Abschnitte und Möglichkeiten der Konfigurationsdatei finden Sie auf der Seite **[Detaillierte Konfiguration (gocfl.toml)](01a_gocfl_config.md)**.
 
 Wenn kein Pfad angegeben wird, nutzt `gocfl` interne Standardwerte (Embedded Config).
 
-### Rangfolge der Einstellungen (Precedence)
+### Rangfolge der Einstellungen (Precedence.md)
 Falls Einstellungen an mehreren Stellen definiert sind, gilt folgende Priorität:
-1. **Kommandozeilen-Parameter (Flags):** Haben immer Vorrang.
+1. **Kommandozeilen-Parameter (Flags.md):** Haben immer Vorrang.
 2. **Umgebungsvariablen:** Überschreiben Werte aus der Konfigurationsdatei (z.B. `GOCFL_S3_ENDPOINT`).
 3. **Konfigurationsdatei:** Definiert projekt- oder nutzerspezifische Standards.
 4. **Standardwerte:** Im Programmcode fest hinterlegte Fallbacks (z.B. SHA-512 als Standard-Hash).
@@ -73,4 +73,4 @@ gocfl --version
 
 ---
 
-[Zurück zur Installation](00_installation) | [Zurück zum Inhaltsverzeichnis](toc) | [Nächstes Thema: Initialisierung einer Storage Root](02_storage_root)
+[Zurück zur Installation](00_installation.md) | [Zurück zum Inhaltsverzeichnis](TOC) | [Nächstes Thema: Initialisierung einer Storage Root](02_storage_root.md)

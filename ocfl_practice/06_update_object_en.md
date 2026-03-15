@@ -1,6 +1,6 @@
 ---
 ---
-[Deutsch](06_update_object)
+[Deutsch](06_update_object.md)
 
 # Updating an Object (update)
 
@@ -110,7 +110,7 @@ In `v1.state`, the file is still present:
 In the `state` of `v2`, this entry for the path `data/image/IMG_6914.tga` is missing.
 
 ### B. Renames and Moves
-In OCFL, renames are handled highly efficiently. If a file has a new path but the same digest (checksum) as used in a previous version, OCFL recognizes this as a rename or move.
+In OCFL, renames are handled highly efficiently. If a file has a new path but the same digest (checksum.md) as used in a previous version, OCFL recognizes this as a rename or move.
 
 **Example Rename:**
 The file keeps its digest but changes the path in the `state`:
@@ -133,4 +133,4 @@ In `v2`, no new file is physically stored. The inventory simply references the d
 
 ---
 
-[Back to Object Structure](05_object_structure_en) | [Back to Table of Contents](toc_en) | [Next Topic: Validation](07_validate_object_en)
+[Back to Object Structure](05_object_structure_en.md) | [Back to Table of Contents](toc_en.md) | [Next Topic: Validation](07_validate_object_en.md)

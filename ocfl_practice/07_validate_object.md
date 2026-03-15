@@ -1,10 +1,10 @@
 ---
 ---
-[English](07_validate_object_en)
+[English](07_validate_object_en.md)
 
 # Validierung (validate)
 
-Ein entscheidender Vorteil von OCFL ist die Integritätssicherung. Mit `gocfl` lässt sich jederzeit überprüfen, ob eine Storage Root oder ein einzelnes Objekt noch der Spezifikation entspricht und ob alle Prüfsummen (Digests) korrekt sind.
+Ein entscheidender Vorteil von OCFL ist die Integritätssicherung. Mit `gocfl` lässt sich jederzeit überprüfen, ob eine Storage Root oder ein einzelnes Objekt noch der Spezifikation entspricht und ob alle Prüfsummen (Digests.md) korrekt sind.
 
 ## 1. Der `validate`-Befehl
 
@@ -41,7 +41,7 @@ Bei der Validierung führt `gocfl` folgende Schritte aus:
 
 Falls eine Storage Root sehr viele Objekte enthält, kann die Validierung zeitaufwendig sein. `gocfl` bietet Flags, um die Prüfung einzugrenzen:
 
-- **Nur ein bestimmtes Objekt (ID):**
+- **Nur ein bestimmtes Objekt (ID.md):**
   ```bash
   gocfl validate ./gocfl/temp/test42/ --object-id urn:nbn:de:gbv:42-test1
   ```
@@ -52,7 +52,7 @@ Falls eine Storage Root sehr viele Objekte enthält, kann die Validierung zeitau
 
 ## 4. Ergebnis der Validierung
 
-Wenn die Validierung abgeschlossen ist, gibt `gocfl` eine Zusammenfassung aus. Dabei ist es wichtig, zwischen **Fehlern (Errors)** und **Warnungen (Warnings)** zu unterscheiden.
+Wenn die Validierung abgeschlossen ist, gibt `gocfl` eine Zusammenfassung aus. Dabei ist es wichtig, zwischen **Fehlern (Errors.md)** und **Warnungen (Warnings.md)** zu unterscheiden.
 
 ### Beispiel-Output aus dem Workshop:
 ```text
@@ -77,11 +77,11 @@ no errors found
 1.  **Warnungen (W-Codes, z.B. W013):**
     *   In unserem Beispiel sehen wir mehrere Warnungen mit dem Code `W013`.
     *   Diese beziehen sich darauf, dass die verwendeten Extensions (z.B. `NNNN-content-subpath`) nicht offiziell bei der OCFL-Community registriert sind (daher das Präfix `NNNN`).
-    *   Gemäß OCFL-Spezifikation **sollten** (SHOULD) Extensions registriert sein, aber es ist **erlaubt**, eigene oder Community-Extensions zu verwenden.
+    *   Gemäß OCFL-Spezifikation **sollten** (SHOULD.md) Extensions registriert sein, aber es ist **erlaubt**, eigene oder Community-Extensions zu verwenden.
     *   Eine Warnung bedeutet **nicht**, dass das Objekt invalide ist.
 
-2.  **Fehler (E-Codes):**
-    *   Fehler (z.B. `E001`, `E066`) würden auf eine Verletzung der OCFL-Kernspezifikation hinweisen (MUST-Anforderungen).
+2.  **Fehler (E-Codes.md):**
+    *   Fehler (z.B. `E001`, `E066`) würden auf eine Verletzung der OCFL-Kernspezifikation hinweisen (MUST-Anforderungen.md).
     *   Ein Objekt mit Fehlern gilt als **invalide** und muss repariert werden (z.B. bei Prüfsummenfehlern).
 
 3.  **Fazit:**
@@ -89,4 +89,4 @@ no errors found
 
 ---
 
-[Zurück zum Aktualisieren eines Objektes](06_update_object) | [Zurück zum Inhaltsverzeichnis](toc) | [Weiter zur Anzeige (display)](08_display_object)
+[Zurück zum Aktualisieren eines Objektes](06_update_object.md) | [Zurück zum Inhaltsverzeichnis](TOC) | [Weiter zur Anzeige (display)](08_display_object.md)

@@ -1,6 +1,8 @@
 ---
 ---
-[English](index_en)
+[English](index_en.md)
+
+[Zurück zur Startseite](../index.md)
 
 # OCFL Standard in der Praxis
 
@@ -42,7 +44,7 @@ In diesem Workshop wird das Werkzeug **[gocfl](https://github.com/ocfl-archive/g
 
 ### Workshop-Navigation
 
-Eine Übersicht über den geplanten Workshop-Ablauf finden Sie im **[Inhaltsverzeichnis (TOC)](toc)**.
+Eine Übersicht über den geplanten Workshop-Ablauf finden Sie im **[Inhaltsverzeichnis (TOC)](TOC)**.
 
 ### Weiterführende Informationen
 Weitere Details zum Standard und der Spezifikation finden Sie auf der offiziellen Webseite:

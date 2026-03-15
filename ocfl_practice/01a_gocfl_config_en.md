@@ -1,6 +1,6 @@
 ---
 ---
-[Deutsch](01a_gocfl_config)
+[Deutsch](01a_gocfl_config.md)
 
 # Overview of the gocfl.toml Configuration File
 
@@ -48,4 +48,4 @@ Configuration for specific OCFL extensions, such as the integration of METS file
 
 ---
 
-[Back to gocfl Usage](01_gocfl_usage_en) | [Back to Table of Contents](toc_en) | [Next Topic: Initializing a Storage Root](02_storage_root_en)
+[Back to gocfl Usage](01_gocfl_usage_en.md) | [Back to Table of Contents](toc_en.md) | [Next Topic: Initializing a Storage Root](02_storage_root_en.md)

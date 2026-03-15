@@ -73,4 +73,4 @@ This means an object is stored by default in a structure like `[hash1-3]/[hash4-
 
 ---
 
-[Back to OCFL Extensions](03_extensions_en) | [Back to Table of Contents](toc_en)
+[Back to OCFL Extensions](03_extensions_en.md) | [Back to Table of Contents](toc_en.md)
