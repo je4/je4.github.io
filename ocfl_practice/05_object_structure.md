@@ -142,4 +142,4 @@ Wie die Storage Root besitzt auch jedes Objekt ein `extensions/`-Verzeichnis. Hi
 
 ---
 
-[Zurück zum Hinzufügen von Objekten](../04_add_object) | [Zurück zum Inhaltsverzeichnis](../toc) | [Nächstes Thema: Objekt aktualisieren](../06_update_object)
+[Zurück zur Objektstruktur](../05_object_structure) | [Zurück zum Inhaltsverzeichnis](../toc) | [Nächstes Thema: Das Inventar](../05a_inventory)

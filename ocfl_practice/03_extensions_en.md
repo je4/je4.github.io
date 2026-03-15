@@ -25,6 +25,7 @@ Extensions are located in both the storage root and the individual OCFL objects 
 As we saw during the initialization of the storage root, `gocfl` automatically creates configuration directories. A detailed overview of the extensions used in this workshop can be found here:
 
 - **[OCFL Storage Root Extensions (initial, manager, layout)](../03a_storage_root_extensions_en)**
+- **[OCFL Object Extensions (content-subpath, indexer, metafile)](../03c_object_extensions_en)**
 - **[Detailed List of All Used Extensions](../03b_extension_list_en)**
 
 ## 4. Hooks in gocfl

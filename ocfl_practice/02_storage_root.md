@@ -70,7 +70,9 @@ test42/
 │   ├── 0004-hashed-n-tuple-storage-layout/
 │   ├── initial/
 │   └── NNNN-gocfl-extension-manager/
-└── NNNN-*.md           # Dokumentation der verwendeten Extensions
+├── 00XX-*.md           # Dokumentationen zu Standard-Extensions
+├── NNNN-*.md           # Dokumentation der verwendeten GOCFL-Extensions
+└── initial.md          # Dokumentation der Initial-Konfiguration
 ```
 
 ### Die wichtigsten Dateien im Detail
@@ -82,7 +84,7 @@ test42/
     - `0004-...` konfiguriert das oben genannte Layout.
     - `initial` legt fest, welche Erweiterung als erstes geladen wird (in unserem Fall der `NNNN-gocfl-extension-manager`).
     - `NNNN-gocfl-extension-manager` ist eine `gocfl`-spezifische Erweiterung, die ausschließlich für die Initialisierung der Storage Root zuständig ist.
-5.  **Die `.md`-Dateien (z.B. `ocfl_spec_1.1.md` und `NNNN-*.md`)**: `gocfl` kopiert bei der Initialisierung sowohl die OCFL-Spezifikation als auch Beschreibungen der verwendeten Erweiterungen (wie `NNNN-indexer.md` oder `NNNN-migration.md`) direkt in die Storage Root. Dies geschieht im Rahmen der Initialisierung durch den Extension Manager. Dies verstärkt den **self-describing** Ansatz: Jeder, der in Zukunft auf dieses Medium zugreift, findet sowohl die allgemeine Spezifikation als auch die Dokumentation der spezifisch verwendeten Funktionen direkt vor Ort, ohne auf externe Webseiten angewiesen zu sein.
+5.  **Die `.md`-Dateien (z.B. `ocfl_spec_1.1.md`, `0001-*.md` und `NNNN-*.md`)**: `gocfl` kopiert bei der Initialisierung sowohl die vollständige OCFL-Spezifikation als auch eine umfangreiche Sammlung von Beschreibungen der verfügbaren Erweiterungen (wie `0004-...md`, `NNNN-indexer.md` oder `NNNN-migration.md`) direkt in die Storage Root. Dies geschieht im Rahmen der Initialisierung durch den Extension Manager. Damit wird das Prinzip der **Self-Documentation** konsequent umgesetzt: Jeder, der in Zukunft auf dieses Medium zugreift, findet nicht nur die allgemeine Spezifikation, sondern auch die technischen Erläuterungen zu allen im Archiv genutzten Funktionen direkt vor Ort, ohne auf externe Webseiten angewiesen zu sein.
 
 ---
 

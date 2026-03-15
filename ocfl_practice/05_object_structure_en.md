@@ -142,4 +142,4 @@ Like the storage root, each object also has an `extensions/` directory. Here, `g
 
 ---
 
-[Back to Adding Objects](../04_add_object_en) | [Back to Table of Contents](../toc_en) | [Next Topic: Updating Objects](../06_update_object_en)
+[Back to Object Structure](../05_object_structure_en) | [Back to Table of Contents](../toc_en) | [Next Topic: The Inventory](../05a_inventory_en)

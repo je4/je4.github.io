@@ -16,7 +16,7 @@ Bevor wir mit dem Workshop beginnen, muss `gocfl` auf Ihrem System installiert w
 Führen Sie den folgenden Befehl in Ihrem Terminal aus, um die für diesen Workshop spezifische Version von `gocfl` zu installieren:
 
 ```bash
-go install github.com/ocfl-archive/gocfl/v2/gocfl@v2.0.6-beta29
+go install github.com/ocfl-archive/gocfl/v2/gocfl@v2.0.6-beta30
 ```
 
 ## 3. Verifizierung

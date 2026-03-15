@@ -28,7 +28,7 @@ These extensions automatically enrich the object with technical or administrativ
 - **`NNNN-indexer`**: Extracts technical metadata (format, duration, resolution, etc.) using tools like Siegfried and FFMPEG and stores it in `indexer_v1.jsonl.gz`.
 - **`NNNN-filesystem`**: Backs up metadata of the original filesystem (timestamps, permissions) in `filesystem_v1.jsonl.gz`.
 - **`NNNN-metafile`**: Allows including custom metadata (like our `info.json`) when creating the object.
-- **`0001-digest-algorithms`**: Enables the calculation of additional checksums (fixity) for long-term integrity.
+- **`0009-digest-algorithms`**: Enables the calculation of additional checksums (fixity) for long-term integrity, as OCFL only allows SHA-512/256 by default.
 
 ### C. Extensions for Better Readability and Preview
 These extensions serve to make the content of the object more quickly graspable for human users.

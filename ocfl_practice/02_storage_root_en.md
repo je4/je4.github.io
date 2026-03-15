@@ -70,7 +70,9 @@ test42/
 │   ├── 0004-hashed-n-tuple-storage-layout/
 │   ├── initial/
 │   └── NNNN-gocfl-extension-manager/
-└── NNNN-*.md           # Documentation of the used extensions
+├── 00XX-*.md           # Documentation for standard extensions
+├── NNNN-*.md           # Documentation for the used GOCFL extensions
+└── initial.md          # Documentation of the initial configuration
 ```
 
 ### Key Files in Detail
@@ -82,7 +84,7 @@ test42/
     - `0004-...` configures the layout mentioned above.
     - `initial` determines which extension is loaded first (in our case, the `NNNN-gocfl-extension-manager`).
     - `NNNN-gocfl-extension-manager` is a `gocfl`-specific extension responsible solely for initializing the storage root.
-5.  **The `.md` files (e.g., `ocfl_spec_1.1.md` and `NNNN-*.md`)**: During initialization, `gocfl` copies both the OCFL specification and descriptions of the extensions used (such as `NNNN-indexer.md` or `NNNN-migration.md`) directly into the storage root. This happens during initialization by the Extension Manager. This reinforces the **self-describing** approach: anyone accessing this medium in the future will find both the general specification and documentation of the specifically used functions right on-site, without being dependent on external websites.
+5.  **The `.md` files (e.g., `ocfl_spec_1.1.md`, `0001-*.md` and `NNNN-*.md`)**: During initialization, `gocfl` copies both the complete OCFL specification and an extensive collection of descriptions for the available extensions (such as `0004-...md`, `NNNN-indexer.md` or `NNNN-migration.md`) directly into the storage root. This happens during initialization by the Extension Manager. Thus, the principle of **self-documentation** is consistently implemented: anyone accessing this medium in the future will find not only the general specification but also technical explanations for all functions used in the archive right on-site, without being dependent on external websites.
 
 ---
 

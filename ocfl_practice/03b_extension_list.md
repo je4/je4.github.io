@@ -28,7 +28,7 @@ Diese Erweiterungen reichern das Objekt während des Ingest-Prozesses automatisc
 - **`NNNN-indexer`**: Extrahiert technische Metadaten (Format, Dauer, Auflösung etc.) mittels Tools wie Siegfried und FFMPEG und speichert sie in `indexer_v1.jsonl.gz`.
 - **`NNNN-filesystem`**: Sichert Metadaten des ursprünglichen Dateisystems (Zeitstempel, Rechte) in `filesystem_v1.jsonl.gz`.
 - **`NNNN-metafile`**: Erlaubt das Einbinden benutzerdefinierter Metadaten (wie unsere `info.json`) beim Erstellen des Objekts.
-- **`0001-digest-algorithms`**: Ermöglicht die Berechnung zusätzlicher Prüfsummen (Fixity) für die langfristige Integrität.
+- **`0009-digest-algorithms`**: Ermöglicht die Berechnung zusätzlicher Prüfsummen (Fixity) für die langfristige Integrität, da OCFL standardmäßig nur SHA-512/256 erlaubt.
 
 ### C. Erweiterungen für bessere Lesbarkeit und Vorschau
 Diese Erweiterungen dienen dazu, den Inhalt des Objekts für menschliche Nutzer schneller erfassbar zu machen.

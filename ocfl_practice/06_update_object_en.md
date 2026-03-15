@@ -133,4 +133,4 @@ In `v2`, no new file is physically stored. The inventory simply references the d
 
 ---
 
-[Back to Object Structure](../05_object_structure_en) | [Back to Table of Contents](../toc_en) | [Next Topic: Validation](../07_validate_object_en)
+[Back to The Inventory](../05a_inventory_en) | [Back to Table of Contents](../toc_en) | [Next Topic: Validation](../07_validate_object_en)

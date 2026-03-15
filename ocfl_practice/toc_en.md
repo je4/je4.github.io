@@ -19,6 +19,7 @@ This workshop is designed as a "Live-Lab" and leads step-by-step through working
 ## 4. OCFL Extensions
 - **[Concept and Usage of Extensions](../03_extensions_en)**
 - **[OCFL Storage Root Extensions](../03a_storage_root_extensions_en)**
+- **[OCFL Object Extensions](../03c_object_extensions_en)**
 - **[Detailed List of Used Extensions](../03b_extension_list_en)**
 
 ## 5. Adding an Object (add)
@@ -26,6 +27,8 @@ This workshop is designed as a "Live-Lab" and leads step-by-step through working
 
 ## 6. Structure of an OCFL Object
 - **[The Directory Structure of an OCFL Object](../05_object_structure_en)**
+- **[The Inventory (inventory.json)](../05a_inventory_en)**
+- **[Full Inventory (complete)](../05b_full_inventory_en)**
 
 ## 7. Updating an Object (update)
 - **[Updating an Object (update)](../06_update_object_en)**

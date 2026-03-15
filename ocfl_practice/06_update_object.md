@@ -133,4 +133,4 @@ In `v2` wird keine neue Datei physisch gespeichert. Das Inventar referenziert f�
 
 ---
 
-[Zur체ck zur Objektstruktur](../05_object_structure) | [Zur체ck zum Inhaltsverzeichnis](../TOC) | [N채chstes Thema: Validierung](../07_validate_object)
+[Zur체ck zum Inventar](../05a_inventory) | [Zur체ck zum Inhaltsverzeichnis](../toc) | [N채chstes Thema: Validierung](../07_validate_object)
