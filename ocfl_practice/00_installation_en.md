@@ -16,7 +16,7 @@ Before we begin the workshop, `gocfl` must be installed on your system. Since `g
 Run the following command in your terminal to install the specific version of `gocfl` for this workshop:
 
 ```bash
-go install github.com/ocfl-archive/gocfl/v2/gocfl@v2.0.6-beta29
+go install github.com/ocfl-archive/gocfl/v2/gocfl@v2.0.6-beta31
 ```
 
 ## 3. Verification
@@ -28,6 +28,14 @@ gocfl --version
 ```
 
 If the command is not found, ensure that your `GOBIN` directory (typically `$HOME/go/bin` or `%USERPROFILE%\go\bin`) is included in your `PATH` environment variable.
+
+## 4. Tika Server
+
+In this workshop, Tika is used for metadata extraction. The Tika server can be started with the following command:
+
+```bash
+java -jar /home/ocfl/tika-server-standard-3.2.3.jar
+```
 
 ---
 

@@ -16,7 +16,7 @@ Bevor wir mit dem Workshop beginnen, muss `gocfl` auf Ihrem System installiert w
 Führen Sie den folgenden Befehl in Ihrem Terminal aus, um die für diesen Workshop spezifische Version von `gocfl` zu installieren:
 
 ```bash
-go install github.com/ocfl-archive/gocfl/v2/gocfl@v2.0.6-beta30
+go install github.com/ocfl-archive/gocfl/v2/gocfl@v2.0.6-beta31
 ```
 
 ## 3. Verifizierung
@@ -29,6 +29,14 @@ gocfl --version
 
 Sollte der Befehl nicht gefunden werden, stellen Sie sicher, dass Ihr `GOBIN`-Verzeichnis (standardmäßig `$HOME/go/bin` oder `%USERPROFILE%\go\bin`) in Ihrer `PATH`-Umgebungsvariable enthalten ist.
 
+## 4. Tika Server
+
+In diesem Workshop wird Tika für die Extraktion von Metadaten verwendet. Der Tika-Server kann mit folgendem Befehl gestartet werden:
+
+```bash
+java -jar /home/ocfl/tika-server-standard-3.2.3.jar
+```
+
 ---
 
-[Weiter zur Benutzung von gocfl](../01_gocfl_usage) | [Zurück zum Inhaltsverzeichnis](../TOC)
+[Weiter zur Benutzung von gocfl](../01_gocfl_usage) | [Zurück zum Inhaltsverzeichnis](../toc)
