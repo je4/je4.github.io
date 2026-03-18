@@ -19,7 +19,7 @@ gocfl display [Pfad zur Storage Root oder zum Objekt]
 Um die im Workshop erstellte Storage Root im Browser anzuzeigen, verwenden wir:
 
 ```bash
-gocfl --config ./gocfl/config/gocfl.toml display ./gocfl/temp/test42/
+gocfl --config ./gocfl/config/gocfl.toml display --display-external-addr http://127.0.0.1:8081 ./gocfl/temp/test42/
 ```
 
 **Erklärung:**
