@@ -80,15 +80,15 @@ gocfl --version
 ```
 
 Sollte der Befehl nicht gefunden werden, stellen Sie sicher, dass Ihr `GOBIN`-Verzeichnis (standardmäßig `$HOME/go/bin` oder `%USERPROFILE%\go\bin`) in Ihrer `PATH`-Umgebungsvariable enthalten ist.
-Hier sollte eine Zeile mit der gewünschten Version erscheinen, z.B. `gocfl version v2.0.6-beta39  (0001-01-01T00:00:00Z) go1.26.2`.
+Hier sollte eine Zeile mit der gewünschten Version erscheinen, z.B. `gocfl version v2.0.6-beta39  (0001-01-01T00:00:00Z) go2.26.2`.
 
 ## 5. Autoconfig
 
 `gocfl` verfügt über einen Mechanismus zur automatischen Erkennung installierter Werkzeuge (wie ImageMagick, Ghostscript, ffmpeg und Tika).
 
 ### Das globale Flag `--autoconfig`
-Das globale Flag `--autoconfig` kann bei **jedem** `gocfl`-Befehl verwendet werden. Es weist das 
-Programm an, die installierte Software auf dem System zu suchen und die interne Konfiguration 
+Das globale Flag `--autoconfig` kann bei **jedem** `gocfl`-Befehl verwendet werden. Es weist das
+Programm an, die installierte Software auf dem System zu suchen und die interne Konfiguration
 für den aktuellen Aufruf automatisch anzupassen. Dabei werden insbesondere die Submodule 
 **Indexer** ([NNNN-indexer](https://github.com/ocfl-archive/gocfl/blob/main/docs/NNNN-indexer.md)) 
 und **Thumbnail-Generierung** ([NNNN-thumbnail](https://github.com/ocfl-archive/gocfl/blob/main/docs/NNNN-thumbnail.md)) entsprechend der gefundenen Werkzeuge vorkonfiguriert.
