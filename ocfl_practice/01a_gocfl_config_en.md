@@ -6,6 +6,8 @@
 
 The configuration file [gocfl.toml](../gocfl.toml) is the central element for controlling complex processes in `gocfl`. It allows setting default values for commands and configuring the extensive functions of the submodules.
 
+Since `gocfl` already has an internal default configuration, the `gocfl.toml` does not need to contain a complete configuration. It is sufficient to define only the desired deviations or specific adjustments (e.g., S3 credentials or specific submodule parameters) in the file.
+
 Here is an overview of the main sections of the file:
 
 ## 1. Infrastructure and Global Settings

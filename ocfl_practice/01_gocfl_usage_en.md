@@ -40,7 +40,14 @@ gocfl add --help
 `gocfl` offers flexible configuration options to support both simple ad-hoc calls and complex workflows.
 
 ### Configuration File
-For recurring settings, a configuration file (in TOML format) can be used. A specific file can be specified with the global `--config` flag:
+For recurring settings, a configuration file (in TOML format) can be used. By default, `gocfl` searches for its configuration in the directory `$HOME/gocfl`.
+
+The path `$HOME` corresponds to:
+- **Windows:** `%USERPROFILE%` (usually `C:\Users\Username`)
+- **macOS:** `/Users/Username`
+- **Linux:** `/home/Username`
+
+A specific file can be specified with the global `--config` flag:
 
 ```bash
 gocfl --config myconfig.toml [command]
@@ -67,8 +74,48 @@ If settings are defined in multiple places, the following priority applies:
 ## 4. Version Check
 
 To ensure you are working with the expected version, use:
+
 ```bash
 gocfl --version
+```
+
+If the command is not found, ensure that your `GOBIN` directory (typically `$HOME/go/bin` or `%USERPROFILE%\go\bin`) is included in your `PATH` environment variable.
+A line with the desired version should appear here. e.g., `gocfl version v2.0.6-beta39  (0001-01-01T00:00:00Z) go1.26.2`
+
+## 5. Autoconfig
+
+`gocfl` features a mechanism for automatic detection of installed tools (such as ImageMagick, Ghostscript, ffmpeg, and Tika).
+
+### The global flag `--autoconfig`
+The global flag `--autoconfig` can be used with **any** `gocfl` command. It instructs the program to search for installed software on the system and automatically adjust the internal configuration for the current call. In particular, the submodules **[Indexer](https://github.com/je4/indexer)** (NNNN-indexer) and **Thumbnail Generation** (NNNN-thumbnail) are preconfigured according to the tools found.
+
+```bash
+gocfl --autoconfig [command] ...
+```
+
+### The `initconfig` command
+To avoid having to specify `--autoconfig` with every call, the automatically detected (and optionally customized) configuration can be permanently saved:
+
+```bash
+gocfl --autoconfig initconfig
+```
+
+This command creates a standard configuration in `$HOME/gocfl`, which is required for the following steps in the workshop. The results of the automatic tool detection are written into the configuration file.
+
+Paths and the scope of the configuration can optionally be customized using parameters:
+- `--toml`: Path to the TOML configuration file.
+- `--extension-folder`: Directory for extension templates.
+- `--script-folder`: Directory for extension scripts.
+- `--fullconfig`: Writes the complete configuration including all default values to the file. Without this parameter, only the detected adjustments and deviations are saved.
+
+Example for a complete configuration:
+```bash
+gocfl --autoconfig initconfig --fullconfig
+```
+
+Example with customized paths:
+```bash
+gocfl --autoconfig initconfig --toml ./myconfig.toml --extension-folder ./extensions --script-folder ./scripts
 ```
 
 ---

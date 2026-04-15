@@ -6,6 +6,8 @@
 
 Die Konfigurationsdatei [gocfl.toml](../gocfl.toml) ist das zentrale Element für die Steuerung komplexer Abläufe in `gocfl`. Sie erlaubt es, Standardwerte für Befehle festzulegen und die weitreichenden Funktionen der Submodule zu konfigurieren.
 
+Da `gocfl` bereits über eine interne Standard-Konfiguration verfügt, muss die `gocfl.toml` keine vollständige Konfiguration enthalten. Es reicht aus, nur die gewünschten Abweichungen oder spezifischen Anpassungen (z.B. S3-Zugangsdaten oder spezifische Submodul-Parameter) in der Datei zu definieren.
+
 Hier ist ein Überblick über die wichtigsten Abschnitte der Datei:
 
 ## 1. Infrastruktur und Globale Einstellungen
