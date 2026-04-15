@@ -21,6 +21,16 @@ Bevor wir mit dem Workshop beginnen, muss `gocfl` auf Ihrem System installiert w
 
 Die folgenden Programme werden für erweiterte Funktionen (Metadaten-Extraktion, Thumbnail-Erstellung, PDF-Migration) benötigt.
 
+### Homebrew (macOS / Linux)
+Homebrew ist ein Paketmanager, der unter macOS und Linux weit verbreitet ist.
+- **Website:** [brew.sh](https://brew.sh/)
+- **Installation:** Führen Sie den Befehl aus, der auf der Startseite von `brew.sh` unter "Install Homebrew" angegeben ist.
+
+### Winget (Windows)
+Der Windows Package Manager (`winget`) ist in modernen Windows-Versionen (Windows 10 ab 1809, Windows 11) bereits vorinstalliert.
+- **Website:** [learn.microsoft.com/windows/package-manager/winget/](https://learn.microsoft.com/de-de/windows/package-manager/winget/)
+- **Installation:** Sollte `winget` fehlen, kann es über den Microsoft Store (Suche nach "App-Installer") oder direkt von [GitHub](https://github.com/microsoft/winget-cli/releases) bezogen werden.
+
 ### Go
 Wird für die Installation und Ausführung von `gocfl` benötigt.
 - **Windows:** `winget install GoLang.Go` (oder [Download](https://go.dev/dl/))
