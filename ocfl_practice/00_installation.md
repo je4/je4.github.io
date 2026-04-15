@@ -69,7 +69,7 @@ Wird für den Betrieb des **Tika Servers** benötigt. Empfohlen wird eine Versio
 Führen Sie den folgenden Befehl in Ihrem Terminal aus, um `gocfl` zu installieren:
 
 ```bash
-go install github.com/ocfl-archive/gocfl/v2/gocfl@v2.0.6-beta43
+go install github.com/ocfl-archive/gocfl/v2/gocfl@v2.0.6-beta45
 ```
 
 ## 4. Tika Server

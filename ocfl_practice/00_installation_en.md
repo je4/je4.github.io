@@ -69,7 +69,7 @@ Required to run the **Tika Server**. A version of Java 11 or newer is recommende
 Run the following command in your terminal to install `gocfl`:
 
 ```bash
-go install github.com/ocfl-archive/gocfl/v2/gocfl@v2.0.6-beta43
+go install github.com/ocfl-archive/gocfl/v2/gocfl@v2.0.6-beta45
 ```
 
 ## 4. Tika Server
