@@ -80,7 +80,7 @@ gocfl --version
 ```
 
 Sollte der Befehl nicht gefunden werden, stellen Sie sicher, dass Ihr `GOBIN`-Verzeichnis (standardmäßig `$HOME/go/bin` oder `%USERPROFILE%\go\bin`) in Ihrer `PATH`-Umgebungsvariable enthalten ist.
-Hier sollte eine Zeile mit der gewünschten Version erscheinen, z.B. `gocfl version v2.0.6-beta39  (0001-01-01T00:00:00Z) go2.26.2`.
+Hier sollte eine Zeile mit der gewünschten Version erscheinen, z.B. `gocfl version v2.0.6-beta43  (0001-01-01T00:00:00Z) go2.26.2`.
 
 ## 5. Autoconfig
 
