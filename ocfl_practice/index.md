@@ -44,7 +44,7 @@ In diesem Workshop wird das Werkzeug **[gocfl](https://github.com/ocfl-archive/g
 
 ### Workshop-Navigation
 
-Eine Übersicht über den geplanten Workshop-Ablauf finden Sie im **[Inhaltsverzeichnis (TOC)](../../toc)**.
+Eine Übersicht über den geplanten Workshop-Ablauf finden Sie im **[Inhaltsverzeichnis (TOC)](../toc)**.
 
 ### Weiterführende Informationen
 Weitere Details zum Standard und der Spezifikation finden Sie auf der offiziellen Webseite:
